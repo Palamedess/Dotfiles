@@ -1,0 +1,28 @@
+[general]
+import = [".\\neomodern_roseprime.toml"]
+
+[window]
+padding = { y = 0, x = 0 }
+decorations = "Full"
+dynamic_title = true
+resize_increments = true
+
+[env]
+term = "xterm-256color"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+size = 21
+
+[cursor.style]
+shape = "Block"
+
+# Comment this out if using 
+# Windows Subsystem for Linux
+
+#[terminal.shell]
+#program = "wsl"
+#args = ["--cd", "~"]
+
+[mouse]
+hide_when_typing = true

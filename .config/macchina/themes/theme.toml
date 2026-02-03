@@ -1,0 +1,37 @@
+spacing = 1
+padding = 1
+
+hide_ascii = false
+prefer_small_ascii = true
+
+separator = "󰧂"
+#separator = ">"
+separator_color = "6"
+key_color = "4"
+
+[custom_ascii]
+color = "7"
+path = "~/.config/macchina/themes/ascii"
+
+[palette]
+type = "Full"
+visible = true
+glyph = " 󰄛 "
+
+[box]
+title = " fetch! "
+border = "rounded"
+visible = true
+
+[box.inner_margin]
+x = 0
+y = 0
+
+[keys]
+host = "Host"
+kernel = "Kernel"
+os = "OS"
+distro = "Distro"
+shell = "Shell"
+packages = "Packs"
+uptime = "Online"
