@@ -1,62 +1,41 @@
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _complete _ignored _approximate
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-zstyle ':completion:*' max-errors 3
-zstyle :compinstall filename '/home/asher/.zshrc'
-
+# Load and initialise completion system
+zstyle :compinstall filename "$ZDOTDIR/.zshrc.zni"
 autoload -Uz compinit
 compinit
 
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+# Load order matters!
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zap-zsh/supercharge"
+plug "jeffreytse/zsh-vi-mode"
+plug "Aloxaf/fzf-tab"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+#plug "zap-zsh/exa"  --Change to exa instead of lsd?
+
+# zsh-newuser-install
 HISTFILE=~/zsh/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
 setopt autocd extendedglob
 bindkey -v
-# End of lines configured by zsh-newuser-install
+# end of zsh-newuser-install
 
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+# Zap plugin config
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-alias ls="lsd -A"
-alias ll="lsd -Al1 --date=+ --blocks=permission,size,name"
-alias lt="lsd -A --tree"
+ZVM_CURSOR_STYLE_ENABLED=false
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
-alias rm="trash"
-alias del="rm -i"
+# Load ZSH config
+source $ZDOTDIR/zsh-aliases
+source $ZDOTDIR/zsh-functions
 
-alias fetch="macchina"
-
-alias cat="bat"
-alias man="batman"
-alias diff="batdiff"
-
-spf() {
-    os=$(uname -s)
-
-    # Linux
-    if [[ "$os" == "Linux" ]]; then
-        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
-    fi
-
-    # macOS
-    if [[ "$os" == "Darwin" ]]; then
-        export SPF_LAST_DIR="$HOME/Library/Application Support/superfile/lastdir"
-    fi
-
-    command spf "$@"
-
-    [ ! -f "$SPF_LAST_DIR" ] || {
-        . "$SPF_LAST_DIR"
-        rm -f -- "$SPF_LAST_DIR" > /dev/null
-    }
-}
-
+# Starting Tmux on system startup
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+  tmux
 fi
 
-eval "$(starship init zsh)"
+type starship_zle-keymap-select >/dev/null || \
+  eval "$(starship init zsh)"

@@ -1,0 +1,19 @@
+# color ls output with lsd
+alias ls="lsd -A"
+alias ll="lsd -Al1 --date=+ --blocks=permission,size,name"
+alias lt="lsd -A --tree"
+
+# color cat ouput bat
+alias cat="bat"
+alias man="batman"
+alias diff="batdiff"
+
+# trash-cli
+alias rm="trash"
+alias del="rm -i"
+
+# fetch
+alias fetch="macchina"
+
+# make wget use existing history file instead of creating one at the home root
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"

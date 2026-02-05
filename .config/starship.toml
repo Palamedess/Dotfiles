@@ -1,17 +1,13 @@
-#
-# hydro - mimic Fish's hydro prompt
-#
-
 add_newline = false
 
 # A minimal left prompt
-format = "$directory$character"
+format = " $directory$character"
 
 # no right prompt
-right_format = "$git_branch${custom.git_status_dirty}$git_status$cmd_duration$status"
+right_format = "$git_branch${custom.git_status_dirty}$git_status$cmd_duration"
 
 # Timeout for commands executed by starship (in milliseconds)
-command_timeout=2000
+command_timeout = 2000
 
 [username]
 show_always = true
@@ -20,17 +16,16 @@ style_root = "red"
 format = '\[$user\] ($style)'
 
 [character]
-success_symbol = "[](bold blue)"
-error_symbol = "[](bold red)"
-vicmd_symbol = "[](bold blue)"
-vimcmd_replace_one_symbol = '[](bold purple)'
-vimcmd_replace_symbol = '[](bold purple)'
-vimcmd_visual_symbol = '[](bold yellow)'
-
+success_symbol = "[\\[INS \\]](bold bright-yellow)"
+error_symbol = "[\\[ERR \\]](bold red)"
+vimcmd_symbol = "[\\[NORM \\]](bold blue)"
+vimcmd_replace_one_symbol = "[\\[NORM \\]](bold blue)"
+vimcmd_replace_symbol = "[\\[REP \\]](bold bright-yellow)"
+vimcmd_visual_symbol = "[\\[VIS \\]](bold cyan)"
 
 [directory]
 style = "blue"
-truncation_length = 3
+truncation_length = 1
 truncation_symbol = "…/"
 #truncation_length = 1
 #truncation_symbol = ""
@@ -53,7 +48,7 @@ diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 when = 'test -n "$(git status --porcelain 2>/dev/null)"'
 symbol = "•"
 style = "white"
-format="[$symbol]($style)"
+format = "[$symbol]($style)"
 shell = ["zsh", "--no-rcs", "--no-globalrcs"]
 
 [cmd_duration]
@@ -61,7 +56,7 @@ format = '[$duration]($style) '
 style = "yellow"
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"
 style = "bg:color_bg1"
 format = '[  $time]($style)'
