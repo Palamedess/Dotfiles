@@ -108,6 +108,8 @@ Plugin manager for Tmux
 * [Superfile](https://github.com/yorukot/superfile)\
 The most modern looking file manager that i've tried.
 See also [lf](https://github.com/gokcehan/lf) and [vifm](https://github.com/vifm/vifm).
+  * neovim-remote\
+  Allows me to open a file into an existing neovim instance
 
 ### Misc
 

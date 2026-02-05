@@ -3,77 +3,67 @@
 # Inspired by:
 # https://github.com/wfxr/tmux-power/blob/master/tmux-power.tmux
 
-fg="#161719"
-bg="black"
-text="brightblack"
-text_bright="colour4"
-path="$bg"
-time="$fg"
-active="brightyellow"
-date="blue"
-#sep_left=''
-#sep_right=''
-#sep_left=''
-#sep_right=''
-#sep_left=''
-#sep_right=''
-sep_left=''
-sep_right=''
+source "$HOME/.config/tmux/statusenv.sh"
 
 tmux_set() {
   tmux set-option -gq "$1" "$2"
 }
 
 # General
-tmux_set status-bg "$bg"
-tmux_set status-fg "$text"
+tmux_set status-bg "$bg1"
+tmux_set status-fg "$text2"
 tmux_set status-position top
 tmux_set status-justify left
 set-option -g status-interval 1
 
-# Left
-
-tmux_set @mode_indicator_prefix_prompt ' CMD '
+# Mode indicator setup
+tmux_set @mode_indicator_prefix_prompt ' TCMD '
 tmux_set @mode_indicator_copy_prompt ' COPY '
 tmux_set @mode_indicator_sync_prompt ' SYNC '
 tmux_set @mode_indicator_empty_prompt ' NORM '
 
-tmux_set @mode_indicator_prefix_mode_style 'bg=magenta,fg=black, bold'
+tmux_set @mode_indicator_prefix_mode_style 'bg=brightred,fg=black, bold'
 tmux_set @mode_indicator_copy_mode_style 'bg=brightyellow,fg=black, bold'
-tmux_set @mode_indicator_sync_mode_style 'bg=brightred,fg=black, bold'
-tmux_set @mode_indicator_empty_mode_style 'bg=colour4,fg=black, bold'
+tmux_set @mode_indicator_sync_mode_style 'bg=magenta,fg=black, bold'
+tmux_set @mode_indicator_empty_mode_style 'bg=blue,fg=black, bold'
 
-# Left
-tmux_set status-left-style "fg=$text, bg=$bg"
-tmux_set status-left-length 150
-tmux_set status-left "#{tmux_mode_indicator}#{tmux_mode_style}#[fg=$bg]$sep_left#[fg=$time, bg=$bg]$sep_left#[bg=$time, fg=$text_bright] %I:%M %p #[bg=$time,fg=$bg]$sep_left#[bg=$bg] "
-
-# Right
-tmux_set status-right-style "fg=$text, bg=$bg"
-tmux_set status-right-length 100
-tmux_set status-right "#[fg=$bg, bg=$path]$sep_right#[fg=$text]#(echo #{pane_current_path} | sed 's#$HOME#~#g') #[fg=$path, bg=$bg]$sep_right#{tmux_mode_style}#[fg=$bg]$sep_right  $(whoami) "
-
-# Window status style
-tmux_set window-status-style "fg=$text,bg=$bg"
-tmux_set window-status-last-style "fg=$text,bg=$fg"
-tmux_set window-status-activity-style "fg=$active,bg=$fg,bold"
-
-# Window
-
-win_status=" #I:#W#{?window_zoomed_flag, 󰍉} "
-
-tmux_set window-status-format "#[fg=$bg,bg=$bg]$sep_left#[fg=$text,bg=$bg]$win_status#[fg=$bg,bg=$bg]$sep_left"
-tmux_set window-status-current-format "#[fg=$fg,bg=$bg,bold]$sep_left#[fg=$active,bg=$fg]$win_status#[fg=$bg,bg=$fg]$sep_left"
-
-# Window separator
+# Statusbar options
+tmux_set status-left-style "fg=$text2, bg=$bg1"
+tmux_set status-right-style "fg=$text2, bg=$bg1"
+tmux_set window-status-style "fg=$inactive_tab_fg,bg=$bg0"
+tmux_set window-status-last-style "fg=$inactive_tab_fg,bg=$bg0"
+tmux_set window-status-activity-style "fg=$active_tab_fg,bg=$bg0,bold"
 tmux_set window-status-separator ""
+tmux_set status-right-length 100
+tmux_set status-left-length 150
 
-# clock mode
-tmux_set clock-mode-colour yellow
+# Statusbar
+file_path="#[fg=$bg1, bg=$file_path_bg]$mrsep#[fg=$file_path_fg] #(echo #{pane_current_path} | sed 's#$HOME#~#g') "
+host_name="#{tmux_mode_style}#[fg=$file_path_bg]$mrsep#[fg=$bg1]  $(whoami) "
+time="$mlsep#[bg=$time_bg, fg=$time_fg] 󱑁 %I:%M %p"
 
-# copy mode
-tmux_set mode-style 'fg=black bg=brightred bold'
+tabstatus=" #I:#W#{?window_zoomed_flag, 󰍉, -}"
+tabstatusactive="$tabstatus 󰆽"
 
-# panes
-tmux_set pane-border-style "fg=black"
-tmux_set pane-active-border-style "fg=brightblack"
+left_prompt=""
+right_prompt=""
+
+tmux_set window-status-format "#[fg=$bg0,bg=$bg1]$lsep#[fg=$text2,bg=$bg0]$tabstatus  #[fg=$bg1,bg=$bg0]$lsep"
+tmux_set window-status-current-format "\
+#[fg=$active_tab_bg,bg=$bg1,bold]\
+$lsep#[fg=$active_tab_fg,bg=$active_tab_bg]\
+$tabstatusactive#[fg=$bg1]\
+$lsep"
+
+gap=" #[fg=$bg1,bg=$time_bg]$lsep"
+
+if [[ "1" -eq "$gaps" ]]; then
+  left_prompt="#{tmux_mode_indicator}#{tmux_mode_style}#[fg=$bg1]$mlsep#[fg=$time_bg,bg=$bg1]$time$gap"
+  right_prompt="#[bg=$file_path_bg]$file_path#[fg=$file_path_bg, bg=$bg1]$mrsep$host_name"
+else
+  left_prompt="#{tmux_mode_indicator}#{tmux_mode_style}#[fg=$time_bg]$time$gap"
+  right_prompt="$file_path$host_name"
+fi
+
+tmux_set status-left "$left_prompt"
+tmux_set status-right "$right_prompt"

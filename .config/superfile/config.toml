@@ -98,7 +98,7 @@ theme = "roseprime"
 
 #-- Code Previewer
 # Whether to use the builtin syntax highlighting with chroma or use bat. Values: "" for builtin chroma, "bat" for bat
-code_previewer = ""
+code_previewer = "bat"
 
 #-- Nerd Fonts Support
 # Whether to enable support for Nerd Fonts symbols.
@@ -165,7 +165,6 @@ border_middle_right = '╡'
 #border_bottom_right = '🬍'
 #border_middle_left = '🬛'
 #border_middle_right = '🬫'
-
 
 
 ###############################################################################
