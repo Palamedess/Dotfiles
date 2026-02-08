@@ -1,0 +1,9 @@
+[user]
+	name = Palamedess
+	email = asher_mackay@outlook.com
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[core]
+	editor = nvim
+[color]
+	ui = always
