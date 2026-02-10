@@ -1,0 +1,10 @@
+colorscheme
+
+.config/zsh/.zcompdump
+
+.config/tmux/plugins/*
+!.config/tmux/plugins/tmux-mode-indicator
+!.config/tmux/plugins/tmp
+
+.config/superfile/theme
+!.config/superfile/theme/roseprime.conf

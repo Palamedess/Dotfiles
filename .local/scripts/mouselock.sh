@@ -12,9 +12,9 @@ fi
 
 #Check mouselock contents and enable and disable the touchpad/mouse accordingly
 if [[ "$status" == "unlocked" ]]; then
-  hyprctl keyword "device[asue1409:00-04f3:3157-touchpad]:enabled" false
+  hyprctl keyword "device[bcm5974]:enabled" false
   echo "locked" >$tmpfile
 elif [[ "$status" == "locked" ]]; then
-  hyprctl keyword "device[asue1409:00-04f3:3157-touchpad]:enabled" true
+  hyprctl keyword "device[bcm5974]:enabled" true
   echo "unlocked" >$tmpfile
 fi

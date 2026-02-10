@@ -1,4 +1,6 @@
 .config/alacritty
+colorscheme 
 .git
+.gitignore
 .*\.md
 ^/README.*

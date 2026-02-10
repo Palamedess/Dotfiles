@@ -14,7 +14,6 @@ plug "zsh-users/zsh-syntax-highlighting"
 #plug "zap-zsh/exa"  --Change to exa instead of lsd?
 
 # zsh-newuser-install
-HISTFILE=~/zsh/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -31,11 +30,12 @@ zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 # Load ZSH config
 source $ZDOTDIR/zsh-aliases
 source $ZDOTDIR/zsh-functions
+source $ZDOTDIR/zsh-tty-col
 
 # Starting Tmux on system startup
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  tmux
-fi
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#  tmux
+#fi
 
 type starship_zle-keymap-select >/dev/null || \
   eval "$(starship init zsh)"

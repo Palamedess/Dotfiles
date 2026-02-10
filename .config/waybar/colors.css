@@ -1,7 +1,9 @@
-@define-color cursor #C4B6C5;
 @define-color background #141517;
 @define-color foreground #C4B6C5;
-@define-color visual  #27282A;
+@define-color visual     #27282A;
+@define-color line       #1C1D1F;
+@define-color comment    #666068;
+
 @define-color color0  #1C1D1F;
 @define-color color1  #9D777D;
 @define-color color2  #7C9793;

@@ -1,4 +1,0 @@
-zsh/.zcompdump
-
-tmux/plugins/*
-!tmux/plugins/tmp

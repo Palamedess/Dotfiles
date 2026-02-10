@@ -1,4 +1,4 @@
-#files: 823	version: 5.9
+#files: 833	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -134,6 +134,7 @@ _comps=(
 'cabal' '_cabal'
 'cal' '_cal'
 'calendar' '_calendar'
+'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
 'cc' '_gcc'
@@ -269,6 +270,10 @@ _comps=(
 'dsh' '_dsh'
 'dtruss' '_dtruss'
 'du' '_du'
+'_dunst' '_dunst'
+'dunst' '_dunst'
+'_dunstctl' '_dunstctl'
+'dunstctl' '_dunstctl'
 'dvibook' '_dvi'
 'dviconcat' '_dvi'
 'dvicopy' '_dvi'
@@ -581,6 +586,8 @@ _comps=(
 'hostnamectl' '_hostnamectl'
 'hotjava' '_webbrowser'
 'htop' '_htop'
+'hyprctl' '_hyprctl'
+'hyprpm' '_hyprpm'
 'iceweasel' '_mozilla'
 'icombine' '_ispell'
 'iconv' '_iconv'
@@ -645,6 +652,7 @@ _comps=(
 'killall' '_killall'
 'killall5' '_killall'
 'kioclient' '_kfmclient'
+'kitty' '_kitty'
 'knock' '_knock'
 'konqueror' '_webbrowser'
 'kpartx' '_kpartx'
@@ -699,6 +707,7 @@ _comps=(
 'lsblk' '_lsblk'
 'lsd' '_lsd'
 'lsdiff' '_patchutils'
+'lsinitcpio' '_mkinitcpio'
 'lsmod' '_lsmod'
 'lsns' '_lsns'
 'lsof' '_lsof'
@@ -706,7 +715,6 @@ _comps=(
 'ltrace' '_ltrace'
 'lua' '_lua'
 'luarocks' '_luarocks'
-'luarocks-admin' '_luarocks-admin'
 'lynx' '_lynx'
 'lz4' '_lz4'
 'lz4c' '_lz4'
@@ -747,7 +755,6 @@ _comps=(
 'mencal' '_mencal'
 'mere' '_mere'
 'merge' '_rcs'
-'meson' '_meson'
 'metaflac' '_flac'
 'mformat' '_mtools'
 'mgv' '_pspdf'
@@ -763,6 +770,7 @@ _comps=(
 'mistral' '_openstack'
 'mkdir' '_mkdir'
 'mkfifo' '_mkfifo'
+'mkinitcpio' '_mkinitcpio'
 'mkisofs' '_growisofs'
 'mknod' '_mknod'
 'mksh' '_sh'
@@ -838,7 +846,6 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
-'ninja' '_ninja'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -943,6 +950,7 @@ _comps=(
 'pkginfo' '_pkginfo'
 'pkgrm' '_pkgrm'
 'pkill' '_pgrep'
+'playerctl' '_playerctl'
 'pldd' '_pids'
 'pmake' '_make'
 'pman' '_perl_modules'
@@ -968,12 +976,12 @@ _comps=(
 'postmaster' '_postgresql'
 'postqueue' '_postfix'
 'postsuper' '_postfix'
+'powerprofilesctl' '_powerprofilesctl'
 'pr' '_pr'
 'prev' '_mh'
 'print' '_print'
 'printenv' '_printenv'
 'printf' '_print'
-'progress' '_progress'
 'prompt' '_prompt'
 'prove' '_prove'
 'prs' '_sccs'
@@ -1206,6 +1214,7 @@ _comps=(
 'swanctl' '_swanctl'
 'swift' '_swift'
 'swiftc' '_swift'
+'swww' '_swww'
 'sync' '_nothing'
 'sysctl' '_sysctl'
 'systemctl' '_systemctl'
@@ -1330,6 +1339,7 @@ _comps=(
 'unwrapdiff' '_patchutils'
 'unxz' '_xz'
 'unzip' '_zip'
+'upower' '_upower'
 'uptime' '_uptime'
 'urxvt' '_urxvt'
 'urxvt256c' '_urxvt'
@@ -1438,8 +1448,11 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
+'wpctl' '_wpctl'
 'write' '_users_on'
 'www' '_webbrowser'
 'xargs' '_xargs'
@@ -1669,18 +1682,20 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bat _bootctl _busctl _bwrap _coredumpctl \
-            _curl _fd _gh _glow _hostnamectl \
-            _insmod _journalctl _kernel-install _localectl _loginctl \
-            _lsd _lsmod _luarocks _luarocks-admin _machinectl \
-            _meson _networkctl _ninja _oomctl _p11-kit \
-            _pacman _paru _progress _pulseaudio _resolvectl \
+autoload -Uz _bat _bootctl _busctl _bwrap _cargo \
+            _coredumpctl _curl _dkms _dunst _dunstctl \
+            _fd _gh _glow _hostnamectl _hyprctl \
+            _hyprpm _insmod _journalctl _kernel-install _kitty \
+            _localectl _loginctl _lsd _lsmod _machinectl \
+            _mkinitcpio _networkctl _oomctl _p11-kit _pacman \
+            _paru _playerctl _powerprofilesctl _pulseaudio _resolvectl \
             _rg _rmmod _run0 _sd_bus_address _sd_hosts_or_user_at_host \
             _sd_machines _sd_outputmodes _sd_unit_files _sensors _sensors-detect \
-            _starship _systemctl _systemd _systemd-analyze _systemd-delta \
-            _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles \
-            _timedatectl _trash _trash-empty _trash-list _trash-put \
-            _trash-restore _trust _udevadm _varlinkctl _cdr \
+            _starship _swww _systemctl _systemd _systemd-analyze \
+            _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
+            _systemd-tmpfiles _timedatectl _trash _trash-empty _trash-list \
+            _trash-put _trash-restore _trust _udevadm _upower \
+            _varlinkctl _wl-copy _wl-paste _wpctl _cdr \
             _all_labels _all_matches _alternative _approximate _arg_compile \
             _arguments _bash_completions _cache_invalid _call_function _combination \
             _complete _complete_debug _complete_help _complete_help_generic _complete_tag \

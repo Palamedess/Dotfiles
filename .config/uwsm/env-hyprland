@@ -1,0 +1,6 @@
+# Hyprland
+export HYPRCURSOR_THEME=MyCursor
+export HYPRCURSOR_SIZE=24
+
+# User
+export SCRIPTDIR=$HOME/.local/scripts

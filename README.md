@@ -18,7 +18,7 @@ Dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/)
 
 * Alacritty
 * Bat
-* Glow (optional)
+* FZF
 * GNU Stow
 * Neovim
 * Nerd Font (recommended)
@@ -73,6 +73,9 @@ Noteworthy packages installed and configured on my system
 *Using "roseprime" dark variant.*\
 Relatively minimal compared to a lot of widely used themes.
 
+* [Gowall][https://github.com/Achno/gowall]\
+Utility for changing wallpaper colors to match colorscheme
+
 ### Prettier-Terminal
 
 * [Bat](https://github.com/sharkdp/bat)\
@@ -101,9 +104,12 @@ Neovim "distro" (config) for truly lazy people like me.
 
 * [Tmux](https://github.com/tmux/tmux)\
 Terminal Multiplexer.
+  * [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager)\
+  Plugin manager for Tmux
+  * [Fzf][https://github.com/junegunn/fzf]\
+  Tool for fuzzy finding in the terminal
 
-* [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager)\
-Plugin manager for Tmux
+
 
 * [Superfile](https://github.com/yorukot/superfile)\
 The most modern looking file manager that i've tried.
