@@ -32,10 +32,14 @@ source $ZDOTDIR/zsh-aliases
 source $ZDOTDIR/zsh-functions
 source $ZDOTDIR/zsh-tty-col
 
+
 # Starting Tmux on system startup
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  tmux
-#fi
+if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
+  alias fetch="macchina -c "$XDG_CONFIG_HOME"/macchina/macchina-tmux.toml"
+fi
+
+fetch
 
 type starship_zle-keymap-select >/dev/null || \
   eval "$(starship init zsh)"

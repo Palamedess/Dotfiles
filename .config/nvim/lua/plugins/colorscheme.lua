@@ -4,13 +4,15 @@ return {
     lazy = false,
     config = function()
       require("neomodern").setup({
-        bg = "alt",
+        bg = "transparent",
         theme = "roseprime",
         overrides = {
           hlgroups = {
             ["WinSeparator"] = { guifg = "$comment" },
             ["NormalFloat"] = { guibg = "$bg" },
             ["FloatBorder"] = { guibg = "$bg", guifg = "$visual" },
+            ["Cursor"] = { guibg = "$comment", guifg = "$fg", gui = "none" },
+            ["iCursor"] = { guibg = "$string", guifg = "$bg", gui = "italic" },
           },
         },
       })
@@ -54,6 +56,7 @@ return {
       -- about calling its own load function.
       -- Setting this does nothing and instead throws an error :|
       -- colorscheme = "neomodern",
+      termguicolors = true,
     },
   },
 }

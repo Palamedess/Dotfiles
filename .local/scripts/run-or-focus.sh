@@ -5,11 +5,15 @@
 
 runcmd=$1
 
-if [ -n $# ]; then
+echo "$runcmd"
+
+if [ $# -eq 0 ]; then
   exit 1
 fi
 
-appname=$(basename $(echo "$runcmd" | awk '{print $1}'))
+appname=$(basename "$(echo "$runcmd" | awk '{print $1}')")
+
+echo "$appname"
 
 # Omarchy version checked titles too, however
 # that may cause other applications with the same
@@ -17,6 +21,8 @@ appname=$(basename $(echo "$runcmd" | awk '{print $1}'))
 # eg, Kitty with "firefox" in the title because it
 # is editing a config file
 win_address=$(hyprctl clients -j | jq -r --arg p "$appname" '.[]|select(.class|test("\\b" + $p + "\\b";"i"))|.address' | head -n1)
+
+echo "$win_address"
 
 if [[ -n "$win_address" ]]; then
   hyprctl dispatch focuswindow "address:$win_address"

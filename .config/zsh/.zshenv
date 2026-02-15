@@ -8,6 +8,7 @@ export XDG_DATA_HOME="$HOME"/.local/share
 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$XDG_DATA_HOME"/go
+export NUGET_PACKAGEs="$XDG_CACHE_HOME"/NuGetPackages
 
 export EDITOR=nvim
 export VISUAL=nvim

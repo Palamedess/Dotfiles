@@ -11,16 +11,16 @@ key_color = "4"
 
 [custom_ascii]
 color = "White"
-path = "~/.config/macchina/themes/ascii"
+path = "~/.config/macchina/themes/ascii-tmux"
 
 [palette]
-type = "Full"
+type = "Light"
 visible = true
 
 [box]
 title = " fetch! "
 border = "rounded"
-visible = true
+visible = false 
 
 [box.inner_margin]
 x = 1
@@ -31,6 +31,7 @@ host = "Host"
 kernel = "Kernel"
 os = "OS"
 wm = "WM"
+terminal = "Term"
 distro = "Distro"
 shell = "Shell"
 packages = "Packs"

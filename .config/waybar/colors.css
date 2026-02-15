@@ -1,8 +1,11 @@
 @define-color background #141517;
 @define-color foreground #C4B6C5;
+
 @define-color visual     #27282A;
 @define-color line       #1C1D1F;
 @define-color comment    #666068;
+
+@define-color bar-border #403A3A;
 
 @define-color color0  #1C1D1F;
 @define-color color1  #9D777D;
@@ -12,6 +15,7 @@
 @define-color color5  #8583BC;
 @define-color color6  #4C6B8D;
 @define-color color7  #766D76;
+
 @define-color color8  #666068;
 @define-color color9  #c4959c;
 @define-color color10 #9bbdb8;

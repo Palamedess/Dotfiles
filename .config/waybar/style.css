@@ -2,122 +2,152 @@
 
 
 * {
-  /*background: transparent;*/
   /*color: @comment:*/
   border: none;
   /* border-radius: 8px; */
-  font-family: 'JetBrainsMono Nerd Font Propo';
-  font-size: 16px;
+  font-family: 'JetBrainsMono NFP';
+  font-size: 14px;
   font-weight: bold;
-  min-height: 26px;
+  min-height: 16px;
 }
 
 tooltip {
   opacity: 1;
- }
-
-window#waybar  {
-  background-color: transparent;
-  color: @comment;
 }
 
-#waybar > box {
-  border-radius: 4px;
-  background-color: alpha(@background, 0.9);
-  border: 2px solid alpha(@comment, 1.0);
-  margin: 0px 8px 3px 8px;
-  box-shadow: 1px 1px 3px 1px #101010;
+window#waybar {
+  background-color: transparent;
+  color: @comment;
+  margin: 0;
+  padding: 0;
+  transition-property: margin-top;
+  transition-duration: 0.75s; /* Adjust speed here */
+  transition-timing-function: ease-in;
+}
+
+#waybar>box {
+  background-color: alpha(@background, 0.90);
+  /*border: 1px solid alpha(@line, 1.0);*/
+  padding: 0px 2px;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
 
-window#waybar.empty #window{
-  background: transparent;
+window#waybar.empty #window #window:hover {
+  background: none;
   color: transparent;
-  border: none;
+  animation: none;
+  border-radius: 4px 0px 0px 4px;
+  margin-left: 4px;
   padding: 0;
-  margin: 0;
 }
+
+.module:not(#clock):not(#workspaces):not(#title):not(#window) {
+  background: alpha(@background, 0.5);
+  color: alpha(@color11, 0.85);
+  padding: 0 4px;
+  margin: 0px 2px;
+  border-radius: 4px;
+  border: 1px solid alpha(@bar-border, 0.95);
+  text-shadow:
+    -1px -1px 2px @line,
+    1px -1px 2px  @line,
+    1px 1px 2px   @line,
+    -1px 1px 2px  @line;
+  box-shadow: 0px 0px 3px 2px alpha(@visual, 0.5);
+  transition: all 0.25s linear;
+}
+
 
 .modules-center {
+  background: none;
   margin: 1px 2px;
   padding: 0 10px;
-  border-left: 2px solid alpha(@comment, 1.0);
-  border-right: 2px solid alpha(@comment, 1.0);
+  border: none;
 }
 
+
+.module:hover:not(#clock):not(#workspaces):not(#taskbar):not(#tray):not(#window) {
+  background: alpha(@bar-border, 0.15);
+  /*color: @color11;*/
+  color: @comment;
+  background: alpha(@foreground, 0.025);
+  /*border: 1px solid @color0;*/
+  border: 1px solid @visual;
+  text-shadow: none;
+}
+
+
 #workspaces {
-    margin: 0;
-    padding: 1px 2px 1px;
-    border-radius: 2px;
-    background-color: alpha(@comment, 1.0);
-    opacity: 0.95;
+  background-color: alpha(@background, 1.0);
+  color: alpha(@background, 0.5);
+  padding: 0px;
+  margin: 0px 4px;
+  border-radius: 4px;
+  border: 1px solid alpha(@bar-border, 0.95);
+  font-size: 5px;
+  text-shadow:
+    -1px -1px 2px @color15,
+    1px -1px 2px  @color15,
+    1px 1px 2px   @color15,
+    -1px 1px 2px  @color15;
+  box-shadow: 0px 0px 3px 2px alpha(@visual, 0.5);
+  transition: all 0.25s linear;
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    margin: 1px 2px;
-    border-radius: 2px;
-    background-color: alpha(@color3, 0.75);
-    color: @comment;
-    transition: all 0.3s ease-in-out;
-    opacity: 0.75;
-    font-size: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  margin: 1px 2px;
+  border-radius: 2px;
+  background-color: alpha(@color0, 1.0);
+  color: @comment;
+  border: 1px solid alpha(@visual, 0.5);
+  transition: all 0.3s ease-in-out;
+  box-shadow: none;
 }
 
 #workspaces button.active {
-    color: @comment;
-    background-color: @color1;
-    border-radius: 2px;
-    min-width: 25px;
-    opacity: 1.0;
-    transition: all 0.3s ease-in-out;
-}
-
-#workspaces button.empty {
-  opacity: 0.2;
-}
-
-#workspaces button.empty.active {
- color: @color3;
- opacity: 1.0;
- border-radius: 2px;
- min-width: 30px;
+  color: @color0;
+  background: alpha(@color1, 0.75);
+  border-radius: 2px;
+  opacity: 0.9;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
-    color: @comment;
-    background: @color1;
-    border-radius: 2px;
-    min-width: 30px;
-    opacity: 0.9;
+  background: none;
+  color: @color7;
+  border: 1px solid @visual;
+  border-radius: 2px;
+  opacity: 0.9;
 }
 
-
+#hyprland-window.empty {
+  border: none;
+}
 
 #hyprland-window,
 #window,
-#tray,
 #cpu,
-#mpris,
 #memory,
 #battery,
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-omarchy,
 #backlight,
 #clock,
-#idle_inhibitor,
-#custom-updatespacman,
-#power-profiles-daemon,
-#custom-screenrecording-indicator,
-#custom-update {
-  min-width: 12px;
+#power-profiles-daemon {
+  min-width: 10px;
   margin: 1px 1px 1px 1px;
-  padding: 0 4px;
+}
+
+#clock {
+  font-size: 16px;
+}
+
+
+#backlight {
+  font-size: 14px;
 }
 
 tooltip {
@@ -125,58 +155,55 @@ tooltip {
 }
 
 .hidden {
-  opacity: 0;
+  opacity: 1;
+  margin: -30px;
 }
 
 #power-profiles-daemon,
 #power-profiles-daemon.performance,
 #power-profiles-daemon.balanced,
 #power-profiles-daemon.power-saver {
-font-size: 14px;
+  font-size: 16px;
 }
-
-
-/* Specific animation Module */
-
-#custom-screenrecording-indicator {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  color: transparent;
-}
-
-#custom-screenrecording-indicator.active {
-  color: #eb7087;
-  animation-name: blink-recording;
-  animation-duration: 0.5s;
-}
-
-@keyframes blink-recording {
-    to {
-        color: @background;
-    }
-}
-
-
 
 tooltip {
- padding: 4px;
- background: @background;
- border: 1px solid alpha(@comment, 0.3);
- border-radius: 8px;
- box-shadow: 1px 1px 3px 1px #131313;
- font-size: 12px;
- 
+  padding: 4px;
+  background: @background;
+  border: 1px solid alpha(@comment, 0.3);
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px 1px #131313;
+  font-size: 12px;
 }
+
 tooltip label {
-    color: @comment;
-    font-weight: normal;
+  color: @comment;
+  font-weight: normal;
+}
+
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network {
+  min-width: 40px;
+}
+
+#battery {
+  min-width: 55px;
+}
+
+#cpu {
+  min-width: 67px;
+}
+
+#memory {
+  min-width: 72px;
 }
 
 @keyframes blink {
-    to {
-        color: #4a4a4a;
-    }
+  to {
+    color: #4a4a4a;
+  }
 }
 
 #battery.warning {

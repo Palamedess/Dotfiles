@@ -1,13 +1,12 @@
 {
   "reload_style_on_change": true,
   "position": "top",
-  "spacing": 5,
-  "height": 36,
+  "spacing": 2,
+  "height": 26,
   "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 10,
-  "margin-right": 10,
-  "width": 1455,
+  "margin-left": 0,
+  "margin-right": 0,
 
   "modules-left": [
     "hyprland/workspaces",
@@ -27,14 +26,15 @@
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
+    "sort-by": "number",
+    "format": "{id}",
     "format-icons": {
       "default": "",
-      "1": "",
+      /*"1": "",
       "2": "",
       "3": "",
-      "4": "",
-      "active": ""
+      "4": "",*/
+      "active": ""
     },
     "persistent-workspaces": {
       "1": [],
@@ -188,10 +188,10 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omar$mainModchy-launch-bluetooth"
+    "on-click": "omarchy-launch-bluetooth"
   },
   "pulseaudio": {
-    "format": "{icon}$mainMod",
+    "format": "{icon}",
     "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
