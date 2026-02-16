@@ -4,9 +4,12 @@ return {
     lazy = false,
     config = function()
       require("neomodern").setup({
-        bg = "transparent",
+        bg = "alt",
         theme = "roseprime",
         overrides = {
+          default = {
+            bg = "#111111",
+          },
           hlgroups = {
             ["WinSeparator"] = { guifg = "$comment" },
             ["NormalFloat"] = { guibg = "$bg" },
