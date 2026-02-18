@@ -20,6 +20,10 @@ window#waybar {
   border: 1px solid @border;
 }
 
+#workspaces button:first-child {
+  border-radius: 4px;
+}
+
 #battery {
   margin: -1px -1px -1px 0px;
   border-radius: 6px 0px 0px 6px;

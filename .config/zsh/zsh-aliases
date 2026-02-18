@@ -1,7 +1,7 @@
 # color ls output with lsd
-alias ls="lsd -A"
-alias ll="lsd -Al1 --date=+ --blocks=permission,size,name"
-alias lt="lsd -A --tree"
+alias ls="lsd -A --dereference"
+alias ll="lsd -Al1 --date=+ --blocks=permission,size,name --dereference"
+alias lt="lsd -A --tree --dereference"
 
 # color cat ouput bat
 alias cat="bat"

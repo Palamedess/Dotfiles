@@ -27,6 +27,15 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZVM_CURSOR_STYLE_ENABLED=false
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls'
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
 # Load ZSH config
 source $ZDOTDIR/zsh-aliases
 source $ZDOTDIR/zsh-functions
