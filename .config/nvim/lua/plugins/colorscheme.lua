@@ -5,11 +5,8 @@ return {
     config = function()
       require("neomodern").setup({
         bg = "alt",
-        theme = "roseprime",
+        theme = "moon",
         overrides = {
-          default = {
-            bg = "#111111",
-          },
           hlgroups = {
             ["WinSeparator"] = { guifg = "$comment" },
             ["NormalFloat"] = { guibg = "$bg" },
@@ -35,9 +32,10 @@ return {
           guifg = Snacks.util.color("FloatBorder"),
         },
         FzfLuaBorder = { guibg = colors.bg, guifg = colors.comment },
+        NoiceCmdlinePopupBorder = { guifg = colors.func },
         -- Lazy popup menu
-        LazyNormal = { guibg = "#161719", guifg = colors.comment },
-        LazyDimmed = { guibg = "#161719", guifg = colors.bg },
+        LazyNormal = { guibg = "#121212", guifg = colors.comment },
+        LazyDimmed = { guibg = "#121212", guifg = colors.bg },
         LazyBackdrop = { guifg = colors.bg },
         -- Indent line
         SnacksIndent = { guifg = colors.visual },

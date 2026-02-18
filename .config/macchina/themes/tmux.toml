@@ -6,8 +6,8 @@ prefer_small_ascii = true
 
 separator = "󰧂"
 #separator = ">"
-separator_color = "6"
-key_color = "4"
+separator_color = "green"
+key_color = "red"
 
 [custom_ascii]
 color = "White"
@@ -16,23 +16,25 @@ path = "~/.config/macchina/themes/ascii-tmux"
 [palette]
 type = "Light"
 visible = true
+glyph = "  "
 
 [box]
 title = " fetch! "
 border = "rounded"
-visible = false 
+visible = false
 
 [box.inner_margin]
 x = 1
 y = 0
 
 [keys]
-host = "Host"
-kernel = "Kernel"
-os = "OS"
-wm = "WM"
-terminal = "Term"
-distro = "Distro"
-shell = "Shell"
-packages = "Packs"
-uptime = "Online"
+host = " Host"
+kernel = "󰌽 Kernel"
+os = " OS"
+de = " DE"
+wm = " WM"
+distro = " Distro"
+terminal = " Term"
+shell = " Shell"
+packages = " Packs"
+uptime = "󰥔 Online"

@@ -1,13 +1,9 @@
 {
   "reload_style_on_change": true,
   "position": "top",
-  "spacing": 2,
+  "spacing": 10,
   "height": 26,
-  "margin-top": 0,
-  "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-
+  "margin": 0,
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -48,23 +44,12 @@
     "expand": true,
     "max-length": 45,
     "rewrite": {
-      " - ": "", // if no window is focused, a single dash is displayed, this removes it
-      "(.*?) - Chromium - chromium": "  $1 ",
-      "(.*chrome)...(.*)": "  $1 ",
-      "(.*) - Obsidian - .* - obsidian": "  $1 ",
-      "(.*nvim)...(.*)": "  $2 ",
-      "(.*code) - (.*)": " 󰨞 $1 ",
+      " - ": "Empty", // if no window is focused, a single dash is displayed, this removes it
+      "nvim .*?": " $1",
+      "(.*) - kitty": "  [$1] ",
       "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
-      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
-      "(.*) - Spotify": "  $1 ",
-      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-      "(.*) - Alacritty": "   $1 ",
-      "(.*) - BeeperTexts": " 󰻞  $1 ",
       "(.*Discord)...(.*).. (.*)": "  $2 ",
-      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
-      "(.*) - fish": "  [$1] ",
       "(.*Steam)...(.*)": "  $1 ",
-      "(.*) - com.obsproject.Studio": "  $1 "
     }
   },
     "backlight": {
@@ -72,11 +57,11 @@
     "format": "{icon}",
     "tooltip-format": "{percent}%",
     "format-icons": [
-      "🌑",
-      "🌘",
-      "🌗",
-      "🌖",
-      "🌕"
+      "",
+      "",
+      "",
+      "",
+      ""
     ]
   },
     "power-profiles-daemon": {
@@ -93,16 +78,16 @@
    "cpu": {
     "interval": 2,
     "format": " {usage}%",
-    "on-click": "btop"
+    "on-click": "exec uwsm app -- kitty btop"
   },
     "memory": {
     "interval": 2,
     "format": " {used:0.1f}G",
-    "on-click": "btop"
+    "on-click": "exec uwsm app -- kitty btop"
   },
   "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%A, %d %B %Y - %H:%M}",
+    "format": "{:%I:%M}",
+    "format-alt": "{:%A, %d %B %Y - %I:%M}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -114,7 +99,6 @@
         "today": "<span color='#ff6699'><b>{}</b></span>",
       },
     },
-    /*"on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"*/
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -140,7 +124,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "omarchy-launch-wifi"
+    /*"on-click": ""*/
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -177,7 +161,7 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {timeTo}",
     "tooltip-format-charging": "{power:>1.0f}W↑ {timeTo}",
     "interval": 5,
-    "on-click": "omarchy-menu power",
+    /*"on-click": ""*/
     "states": {
       "warning": 20,
       "critical": 10
@@ -188,7 +172,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth"
+    /*"on-click": ""*/
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -205,15 +189,4 @@
       ]
     }
   },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
-  },
- }
+}

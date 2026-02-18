@@ -1,0 +1,28 @@
+@define-color background #141517;
+@define-color background-alt #111111;
+@define-color background-dim #161719;
+
+@define-color foreground #C4B6C5;
+@define-color foreground-dim #766D76;
+
+@define-color text @foreground;
+@define-color text-dim #666068;
+
+@define-color shadow alpha(@visual, 0.5);
+@define-color line #1C1D1F;
+@define-color visual #27282A;
+@define-color border #303030;
+
+@define-color red #9D777D;
+@define-color green #7C9793;
+@define-color yellow #A18877;
+@define-color blue #788CC2;
+@define-color voilet #8583BC;
+@define-color cyan #4C6B8D;
+
+@define-color brightred #c4959c;
+@define-color brightgreen #9bbdb8;
+@define-color brightyellow #c9aa95;
+@define-color brightblue #96aff2;
+@define-color brightvoilet #a6a4eb;
+@define-color brightcyan #5f86b0;

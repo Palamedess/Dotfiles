@@ -1,5 +1,6 @@
 #!/bin/bash
 
+special=1
 handle() {
   if [ "$special" == 1 ]; then
 

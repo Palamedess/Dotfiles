@@ -1,0 +1,9 @@
+window#waybar {
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
