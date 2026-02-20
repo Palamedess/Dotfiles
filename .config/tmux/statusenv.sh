@@ -7,7 +7,7 @@ export bg1="black"
 # Text
 export text1="black"
 export text2="brightblack"
-export text3="cyan, nobold"
+export text3="green, nobold"
 export text4="$text3"
 
 # File path

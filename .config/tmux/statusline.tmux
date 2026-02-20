@@ -13,14 +13,14 @@ tmux_set status-bg "$bg1"
 tmux_set status-fg "$text2"
 tmux_set status-position top
 tmux_set status-justify left
-set-option -g status-interval 1
+tmux_set status-interval 1
 
 # Mode indicator setup
 tmux_set @mode_indicator_prefix_prompt " TMUX   "
 tmux_set @mode_indicator_copy_prompt " VISUAL "
 tmux_set @mode_indicator_empty_prompt " NORMAL "
 
-tmux_set @mode_indicator_prefix_mode_style "bg=brightmagenta,fg=$text1, bold"
+tmux_set @mode_indicator_prefix_mode_style "bg=blue,fg=$text1, bold"
 tmux_set @mode_indicator_copy_mode_style "bg=$text3,fg=black, bold"
 tmux_set @mode_indicator_empty_mode_style "bg=$text3,fg=black, bold"
 
