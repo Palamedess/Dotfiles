@@ -1,8 +1,9 @@
 {
   "reload_style_on_change": true,
+  "layer": "top",
   "position": "top",
-  "spacing": 10,
-  "height": 26,
+  "spacing": 5,
+  "height": 30,
   "margin": 0,
   "modules-left": [
     "hyprland/workspaces",
@@ -44,12 +45,11 @@
     "expand": true,
     "max-length": 45,
     "rewrite": {
-      " - ": "Empty", // if no window is focused, a single dash is displayed, this removes it
+      " - ": "Empty Workspace", // if no window is focused, a single dash is displayed, this removes it
       "nvim .*?": " $1",
-      "(.*) - kitty": "  [$1] ",
+      "(.*) - kitty": "  [ $1 ] ",
       "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
       "(.*Discord)...(.*).. (.*)": "  $2 ",
-      "(.*Steam)...(.*)": "  $1 ",
     }
   },
     "backlight": {
@@ -94,9 +94,9 @@
       "mode-mon-col": 3,
       "on-click-right": "mode",
       "format": {
-        "month": "<span color='#ffead3'><b>{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>",
+        "month": "<span color='#A1A1AC'><b>{}</b></span>",
+        "weekdays": "<span color='#ab836c'><b>{}</b></span>",
+        "today": "<span color='#858599'><b>{}</b></span>",
       },
     },
   },

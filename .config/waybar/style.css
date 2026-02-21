@@ -2,14 +2,9 @@
 
 * {
   border: none;
-  font-family: "JetBrainsMono NFP";
-  font-size: 14px;
-  text-shadow:
-    -1px -1px 1px @shadow,
-    1px -1px 1px @shadow,
-    1px 1px 1px @shadow,
-    -1px 1px 1px @shadow;
-  min-height: 16px;
+  font-family: "Inter Nerd Font Propo";
+  font-size: 15px;
+  min-height: 20px;
 }
 
 window#waybar {
@@ -21,8 +16,8 @@ window#waybar {
 
 #waybar > box {
   background-color: alpha(@background-alt, 0.9);
-  border: 1px solid @border;
-  border-radius: 8px;
+  box-shadow: 0 0 1px 1px alpha(@border, 0.2) inset;
+  padding: 4px;
 }
 
 window#waybar.empty,
@@ -33,22 +28,64 @@ window#waybar.empty,
   padding: 0;
 }
 
-.module:not(#clock):not(#workspaces):not(#title):not(#window):not(#battery) {
-  background: @background-alt;
-  color: @text-dim;
-  padding: 0 2px;
-  margin: -1px 0px;
+/* Rounding */
+#battery,
+#workspaces,
+.module {
   border-radius: 8px;
-  border: 1px solid @border;
+}
+
+/* Color Consistency */
+#workspaces,
+#workspaces button,
+#battery,
+#cpu,
+#memory {
+  box-shadow: 0 0 2px 1px alpha(@border, 0.2) inset;
+  background-color: alpha(@background, 0.9);
+}
+
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network {
+  background: none;
+  /* background-color: alpha(@background-alt, 0.9); */
+}
+
+.module:not(#window) {
+  color: alpha(@text, 0.65);
+}
+
+/* Borders */
+.module:not(#clock):not(#title):not(#window) {
+  /* border: 1px solid alpha(@border, 0.5); */
+}
+#waybar > box {
+  /* border-bottom: 2px solid @border; */
+}
+
+/* Icon Spacing */
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network {
+  margin: -5;
+  padding: 1;
+}
+
+.module:not(#clock):not(#workspaces):not(#title):not(#window):not(#battery) {
   transition: all 0.25s linear;
 }
 
 .module:hover:not(#clock):not(#workspaces):not(#taskbar):not(#tray):not(
     #window
   ) {
-  background: @background-alt;
   color: @foreground;
   text-shadow: none;
+  opacity: 0.5;
 }
 
 #clock {
@@ -58,50 +95,48 @@ window#waybar.empty,
 }
 
 #battery {
-  background: @background-alt;
-  color: @text-dim;
-  margin: -1px -1px -1px 0px;
-  border-radius: 8px;
-  border: 1px solid @border;
   transition: all 0.25s linear;
+  margin-right: 4px;
 }
 
 #workspaces {
-  background-color: @background-alt;
-  margin: -1px 0px -1px -1px;
-  border-radius: 8px;
-  border: 1px solid @border;
+  background: @line;
   transition: all 0.25s linear;
+  margin-left: 4px;
 }
 
 #workspaces button {
-  background: alpha(@text-dim, 0.1);
   color: @text-dim;
+  background: alpha(@visual, 0.25);
   margin: 1px;
+  padding: 2px 8px;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
   color: @text;
-  background: alpha(@border, 0.6);
+  background: @visual;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:first-child {
-  border-radius: 6px 4px 4px 6px;
+  margin-left: 2px;
+  border-radius: 8px 4px 4px 8px;
 }
 
 #workspaces button:last-child {
-  border-radius: 4px 6px 6px 4px;
+  margin-right: 2px;
+  border-radius: 4px 8px 8px 4px;
 }
 
 #workspaces button:hover {
-  background: none;
+  background: @background;
   color: @foreground;
-  text-shadow: none;
   box-shadow: none;
+  text-shadow: none;
+  opacity: 0.5;
 }
 
 #hyprland-window.empty {
@@ -123,7 +158,7 @@ window#waybar.empty,
 }
 
 #clock {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 #backlight {
@@ -149,14 +184,16 @@ tooltip {
 
 tooltip {
   padding: 4px;
-  background: @background-alt;
+  font-family: "Noto Sans Mono";
+  font-family: "Inter Nerd Font Propo";
+  background: alpha(@background-alt, 0.9);
   border: 1px solid @border;
   border-radius: 8px;
   font-size: 12px;
 }
 
 tooltip label {
-  color: @comment;
+  color: @text;
   font-weight: normal;
 }
 
@@ -198,6 +235,3 @@ tooltip label {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-
-@import "./animate.css";
-@import "./bar-focus.css";
