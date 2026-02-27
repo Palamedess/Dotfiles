@@ -1,0 +1,22 @@
+force_keyboard_focus = true
+close_when_open = true
+click_to_close = true
+selection_wrap = false
+disable_mouse = false
+debug = false
+theme = "moon"
+
+[keybinds]
+close = ["Escape"]
+left = ["Left"]
+right = ["Right"]
+down = ["Down"]
+up = ["Up"]
+next = ["Up", "ctrl j"]
+previous = ["Down", "ctrl k"]
+toggle_exact = ["ctrl e"]
+resume_last_query = ["ctrl r"]
+quick_activate = ["ctrl 1", "ctrl 2", "ctrl 3", "ctrl 4"]
+page_down = ["Page_Down"]
+page_up = ["Page_Up"]
+show_actions = ["alt j"]
