@@ -1,12 +1,11 @@
 # Load and initialise completion system
 zstyle :compinstall filename "$ZDOTDIR/.zshrc.zni"
 autoload -Uz compinit
-compinit
+compinit -d "$ZCOMPCACHE/zcompdump"
 
 # Load order matters!
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-plug "zap-zsh/supercharge"
 plug "jeffreytse/zsh-vi-mode"
 plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-autosuggestions"
@@ -14,11 +13,6 @@ plug "zsh-users/zsh-syntax-highlighting"
 #plug "zap-zsh/exa"  --Change to exa instead of lsd?
 
 # zsh-newuser-install
-HISTSIZE=1000
-SAVEHIST=1000
-
-setopt autocd extendedglob
-bindkey -v
 # end of zsh-newuser-install
 
 # Zap plugin config
@@ -31,8 +25,8 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls'
-zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -A --color=always $realpath'
+#zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
@@ -43,6 +37,8 @@ source $ZDOTDIR/zsh-tty-col
 
 type starship_zle-keymap-select >/dev/null || \
   eval "$(starship init zsh)"
+
+eval "$(zoxide init zsh)"
 
 # Starting Tmux on system startup
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then

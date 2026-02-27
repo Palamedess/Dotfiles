@@ -5,23 +5,16 @@ Also so I can keep track of what I have installed.
 
 ## Info
 
-### System
-
-* **Desktop**\
-Arch Linux through WSL on Windows
-* **Laptop** (WIP)\
-Arch Linux
-
 Dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ### Dependencies
 
-* Alacritty
+* Kitty
 * Bat
 * FZF
 * GNU Stow
 * Neovim
-* Nerd Font (recommended)
+* Nerd Font (JetBrainsMono)
 * Starship
 * Superfile
 * Tmux
@@ -32,8 +25,6 @@ Dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/)
 ## Installation
 
 To install, run:
-
-**NOTE:** Rename or delete .stow-local-ignore if you are not using WSL
 
 ``` sh
 > cd $HOME
@@ -47,8 +38,9 @@ To install, run:
 
 Noteworthy packages installed and configured on my system
 <!--toc:start-->
+* [Desktop Environment](#desktop-environment)
 * [Terminal](#terminal)
-* [Font](#font)
+* [Fonts](#font)
 * [Colorscheme](#colorscheme)
 * [Prettier-Terminal](#prettier-terminal)
 * [Workflow](#workflow)
@@ -56,33 +48,46 @@ Noteworthy packages installed and configured on my system
 
 &nbsp;
 
+### Desktop Environment
+
+* Hyprland
+* Waybar
+* Walker
+
 ### Terminal
 
-* [Alacritty](https://github.com/alacritty/alacritty)(Windows)
-
-[//]: # (Kitty \(Linux\))
+* [Kitty](https://github.com/kovidgoyal/kitty)
 
 ### Font
 
+**Terminal Font**
 * [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
   * Other [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+
+**UI Font**
+* Inter
+  * Inter Nerd Font
+
+**General Purpose**
+* Noto
+  * Noto Emoji
+  * Noto CJK
 
 ### Colorscheme
 
 * [Neomodern](https://github.com/casedami/neomodern.nvim)\
-*Using "roseprime" dark variant.*\
+*Using "Moon" dark variant.*\
 Relatively minimal compared to a lot of widely used themes.
 
-* [Gowall][https://github.com/Achno/gowall]\
+* [Gowall](https://github.com/Achno/gowall)\
 Utility for changing wallpaper colors to match colorscheme
 
 ### Prettier-Terminal
 
 * [Bat](https://github.com/sharkdp/bat)\
 Cat with colored output
-
-* [Bat-extras](https://github.com/eth-p/bat-extras)\
-Extra uses for bat
+  * [Bat-extras](https://github.com/eth-p/bat-extras)\
+  Extra uses for bat
 
 * [Lsd](https://github.com/lsd-rs/lsd)\
 Ls with colored output
@@ -106,13 +111,11 @@ Neovim "distro" (config) for truly lazy people like me.
 Terminal Multiplexer.
   * [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager)\
   Plugin manager for Tmux
-  * [Fzf][https://github.com/junegunn/fzf]\
+  * [Fzf](https://github.com/junegunn/fzf)\
   Tool for fuzzy finding in the terminal
 
-
-
 * [Superfile](https://github.com/yorukot/superfile)\
-The most modern looking file manager that i've tried.
+The most modern looking file manager that I've tried.
 See also [lf](https://github.com/gokcehan/lf) and [vifm](https://github.com/vifm/vifm).
   * neovim-remote\
   Allows me to open a file into an existing neovim instance
@@ -120,7 +123,7 @@ See also [lf](https://github.com/gokcehan/lf) and [vifm](https://github.com/vifm
 ### Misc
 
 * [Glow](https://github.com/charmbracelet/glow)\
-Markdown renderering in the terminal.
+Markdown rendering in the terminal.
 
 * [Paru](https://github.com/Morganamilo/paru)\
 AUR Helper.
