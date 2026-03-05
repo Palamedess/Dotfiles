@@ -3,8 +3,9 @@
   "layer": "top",
   "position": "top",
   "spacing": 5,
-  "height": 30,
+  "height": 36,
   "margin": 0,
+  "margin-bottom": -1,
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -17,6 +18,7 @@
     "network",
     "pulseaudio",
     "power-profiles-daemon",
+    "custom/notification",
     "memory",
     "cpu",
     "battery"
@@ -24,24 +26,26 @@
   "hyprland/workspaces": {
     "on-click": "activate",
     "sort-by": "number",
-    "format": "{id}",
+    "format": "{icon}",
     "format-icons": {
-      "default": "",
-      /*"1": "",
-      "2": "",
-      "3": "",
-      "4": "",*/
-      "active": ""
+		  "1": "一",
+		  "2": "二",
+		  "3": "三",
+		  "4": "四",
+		  "5": "五",
+		  "6": "六",
+		  "7": "七",
+		  "8": "八",
+		  "9": "九",
+		  "10": "十",
     },
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
+      "*": 4,
     }
   },
   "hyprland/window": {
     "format": "{title} - {class}",
+    "tooltip": false,
     "expand": true,
     "max-length": 45,
     "rewrite": {
@@ -62,17 +66,18 @@
       "",
       "",
       ""
-    ]
+    ],
+    "min-brightness": 5.0,
   },
     "power-profiles-daemon": {
     "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip-format": "Power profile:\n{profile}",
     "tooltip": true,
     "format-icons": {
       "default": "󰓅",
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
+      "performance": " ",
+      "balanced": " ",
+      "power-saver": " "
     }
   },
    "cpu": {
@@ -86,8 +91,8 @@
     "on-click": "exec uwsm app -- kitty btop"
   },
   "clock": {
-    "format": "{:%I:%M}",
-    "format-alt": "{:%A, %d %B %Y - %I:%M}",
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%A, %h %d / %I:%M %p}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -158,8 +163,10 @@
       ]
     },
     "format-full": "󰂅 {capacity}%",
-    "tooltip-format-discharging": "{power:>1.0f}W↓ {timeTo}",
-    "tooltip-format-charging": "{power:>1.0f}W↑ {timeTo}",
+    /*"tooltip-format-discharging": "{power:>1.0f}W↓ {timeTo}",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {timeTo}",*/
+    "tooltip-format-discharging": "↓ {timeTo}",
+    "tooltip-format-charging": "↑ {timeTo}",
     "interval": 5,
     /*"on-click": ""*/
     "states": {
@@ -188,5 +195,25 @@
         ""
       ]
     }
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 }

@@ -4,7 +4,6 @@
   border: none;
   font-family: "Inter Nerd Font Propo";
   font-size: 15px;
-  min-height: 20px;
 }
 
 window#waybar {
@@ -16,8 +15,9 @@ window#waybar {
 
 #waybar > box {
   background-color: alpha(@background-alt, 0.9);
-  box-shadow: 0 0 1px 1px alpha(@border, 0.2) inset;
+  box-shadow: 0 0 1px 1px alpha(@border, 0.3) inset;
   padding: 4px;
+  padding-bottom: 5px;
 }
 
 window#waybar.empty,
@@ -41,7 +41,7 @@ window#waybar.empty,
 #battery,
 #cpu,
 #memory {
-  box-shadow: 0 0 2px 1px alpha(@border, 0.2) inset;
+  box-shadow: 0 0 2px 1px alpha(@border, 0.3) inset;
   background-color: alpha(@background, 0.9);
 }
 
@@ -49,7 +49,8 @@ window#waybar.empty,
 #wireplumber,
 #backlight,
 #power-profiles-daemon,
-#network {
+#network,
+#custom-notification {
   background: none;
   /* background-color: alpha(@background-alt, 0.9); */
 }
@@ -71,9 +72,13 @@ window#waybar.empty,
 #wireplumber,
 #backlight,
 #power-profiles-daemon,
-#network {
-  margin: -5;
-  padding: 1;
+#network,
+#custom-notification {
+  margin: -5px;
+}
+
+#custom-notification {
+  color: @background-alt;
 }
 
 .module:not(#clock):not(#workspaces):not(#title):not(#window):not(#battery) {
@@ -91,7 +96,6 @@ window#waybar.empty,
 #clock {
   color: @text;
   font-weight: bold;
-  font-style: italic;
 }
 
 #battery {
@@ -100,43 +104,41 @@ window#waybar.empty,
 }
 
 #workspaces {
-  background: @line;
-  transition: all 0.25s linear;
+  padding: 4px;
   margin-left: 4px;
+  transition: all 0.25s linear;
 }
 
 #workspaces button {
+  background: @blue;
   color: @text-dim;
-  background: alpha(@visual, 0.25);
-  margin: 1px;
-  padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 8px;
+  padding: 0px;
+  min-width: 25px;
+  min-height: 2px;
+  margin-left: 3px;
   transition: all 0.3s ease-in-out;
 }
 
-#workspaces button.active {
-  color: @text;
-  background: @visual;
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out;
+#workspaces button label {
+  font-size: 12px;
 }
 
 #workspaces button:first-child {
-  margin-left: 2px;
-  border-radius: 8px 4px 4px 8px;
+  margin: 0px;
 }
 
-#workspaces button:last-child {
-  margin-right: 2px;
-  border-radius: 4px 8px 8px 4px;
+#workspaces button.active {
+  background: @brightblue;
+  min-width: 40px;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
-  background: @background;
-  color: @foreground;
+  transition: all 0.1s ease-in-out;
+  opacity: 0.75;
   box-shadow: none;
   text-shadow: none;
-  opacity: 0.5;
 }
 
 #hyprland-window.empty {
@@ -153,7 +155,8 @@ window#waybar.empty,
 #pulseaudio,
 #backlight,
 #clock,
-#power-profiles-daemon {
+#power-profiles-daemon,
+#custom-notification {
   min-width: 10px;
 }
 
@@ -165,43 +168,32 @@ window#waybar.empty,
   font-size: 18px;
 }
 
-tooltip {
-  padding: 0.5px;
-  opacity: 1;
-}
-
 .hidden {
   background: transparent;
   opacity: 0;
 }
 
-#power-profiles-daemon,
-#power-profiles-daemon.performance,
-#power-profiles-daemon.balanced,
-#power-profiles-daemon.power-saver {
-  font-size: 16px;
-}
-
 tooltip {
-  padding: 4px;
-  font-family: "Noto Sans Mono";
-  font-family: "Inter Nerd Font Propo";
+  opacity: 1;
+  padding: 2px;
   background: alpha(@background-alt, 0.9);
   border: 1px solid @border;
   border-radius: 8px;
-  font-size: 12px;
 }
 
 tooltip label {
-  color: @text;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: medium;
   font-weight: normal;
+  color: @text;
 }
 
 #pulseaudio,
 #wireplumber,
 #backlight,
 #power-profiles-daemon,
-#network {
+#network,
+#custom-notification {
   min-width: 40px;
 }
 
