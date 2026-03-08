@@ -3,13 +3,11 @@
 --color=marker:#858599,spinner:#858599,header:#858599
 --style=full
 --layout="reverse"
---info="right"
 --prompt=""
 --marker="*"
 --pointer=""
 --cycle
---multi
---padding 0,1
+--padding 1,10%
 --preview="bat --color=always --style=header,grid --line-range :300 {}"
 --bind="?:toggle-preview"
 --bind="ctrl-u:preview-page-up"

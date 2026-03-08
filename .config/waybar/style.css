@@ -10,14 +10,25 @@ window#waybar {
   background: transparent;
   color: @text-dim;
   opacity: 1;
-  transition: none;
+  transition: all 0.3s ease;
+}
+
+window#waybar.hidden {
+  background: black;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+window#waybar.visible {
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
 #waybar > box {
   background-color: alpha(@background-alt, 0.9);
-  box-shadow: 0 0 1px 1px alpha(@border, 0.3) inset;
-  padding: 4px;
-  padding-bottom: 5px;
+  border-bottom: 1px solid alpha(@border, 0.3);
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  margin-bottom: 1px;
 }
 
 window#waybar.empty,
@@ -25,7 +36,20 @@ window#waybar.empty,
 #window:hover {
   animation: none;
   margin-left: 4px;
-  padding: 0;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+  padding: 2px 0 4px 0;
+}
+
+.modules-right {
+  margin-right: 5px;
+}
+
+.modules-left {
+  margin-left: 5px;
 }
 
 /* Rounding */
@@ -37,11 +61,18 @@ window#waybar.empty,
 
 /* Color Consistency */
 #workspaces,
-#workspaces button,
 #battery,
 #cpu,
 #memory {
-  box-shadow: 0 0 2px 1px alpha(@border, 0.3) inset;
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  border: 1px solid alpha(@border, 0.2);
+  background-color: alpha(@background, 0.9);
+  margin: 1px;
+}
+
+#workspaces button {
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  outline: 1px solid alpha(@border, 0.2);
   background-color: alpha(@background, 0.9);
 }
 
@@ -77,11 +108,7 @@ window#waybar.empty,
   margin: -5px;
 }
 
-#custom-notification {
-  color: @background-alt;
-}
-
-.module:not(#clock):not(#workspaces):not(#title):not(#window):not(#battery) {
+.module:not(#title):not(#window) {
   transition: all 0.25s linear;
 }
 
@@ -100,23 +127,26 @@ window#waybar.empty,
 
 #battery {
   transition: all 0.25s linear;
-  margin-right: 4px;
 }
 
 #workspaces {
+  background-color: @background;
   padding: 4px;
   margin-left: 4px;
   transition: all 0.25s linear;
+  min-width: 135px;
 }
 
 #workspaces button {
-  background: @blue;
+  background: transparent;
+  background-color: alpha(@hard-shadow, 0.4);
+  box-shadow: 0px 0px 1px 1px alpha(@border, 0.2) inset;
   color: @text-dim;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 0px;
-  min-width: 25px;
-  min-height: 2px;
-  margin-left: 3px;
+  min-width: 30px;
+  min-height: 4px;
+  margin-left: 1px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -125,11 +155,12 @@ window#waybar.empty,
 }
 
 #workspaces button:first-child {
-  margin: 0px;
+  margin-left: 0px;
 }
 
 #workspaces button.active {
-  background: @brightblue;
+  background: @blue;
+  color: @background;
   min-width: 40px;
   transition: all 0.3s ease-in-out;
 }
@@ -169,8 +200,10 @@ window#waybar.empty,
 }
 
 .hidden {
-  background: transparent;
+  min-height: 0px;
+  background: none;
   opacity: 0;
+  transition: all 0.3s ease;
 }
 
 tooltip {
@@ -205,6 +238,10 @@ tooltip label {
 
 #battery.warning {
   color: @red;
+}
+
+#battery.charging {
+  color: @blue;
 }
 
 #battery.critical.charging {

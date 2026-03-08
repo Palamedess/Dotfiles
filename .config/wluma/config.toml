@@ -1,0 +1,19 @@
+[als.iio]
+path = "/sys/bus/iio/devices"
+thresholds = { 0 = "night", 3 = "dark", 8 = "dim", 25 = "normal", 50 = "bright", 80 = "outdoors" }
+
+[[output.backlight]]
+name = "eDP-1"
+path = "/sys/class/backlight/intel_backlight"
+capturer = "wayland"
+
+[output.backlight.predictor.manual]
+thresholds.dark = { 0 = 10, 100 = 70 }
+thresholds.dim = { 0 = 10, 100 = 50 }
+thresholds.normal = { 0 = 0, 100 = 10 }
+thresholds.bright = { 0 = 0, 100 = 5 }
+thresholds.outdoors = { 0 = 0, 100 = 0 }
+
+[[keyboard]]
+name = "applesmc"
+path = "/sys/bus/platform/devices/applesmc.768/leds/smc::kbd_backlight"

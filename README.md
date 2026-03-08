@@ -50,30 +50,45 @@ Noteworthy packages installed and configured on my system
 
 ### Desktop Environment
 
-* Hyprland
-* Waybar
-* Walker
+#### Core
 
-### Terminal
+* [Hyprland]()
+Tiling window manager
+* [Waybar]()
+Bar
+* [Swaync]()\
+Notification daemon with a control center included
+* [Swayosd]()
+On screen display for things like volume change and brightness
+* [Walker]()\
+Application launcher
+  [Elephant]()\
+  Backend for Walker
 
-* [Kitty](https://github.com/kovidgoyal/kitty)
+#### Fonts
 
-### Font
-
-**Terminal Font**
 * [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
   * Other [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
-**UI Font**
 * Inter
   * Inter Nerd Font
 
-**General Purpose**
 * Noto
   * Noto Emoji
   * Noto CJK
 
-### Colorscheme
+#### Applications
+
+* [Kitty](https://github.com/kovidgoyal/kitty)\
+GPU accelerated terminal
+
+* [Zen Browser]()\
+Aesthetically pleasing browser based on firefox
+
+* [Nautilus]()\
+GUI file browser
+
+#### Themeing
 
 * [Neomodern](https://github.com/casedami/neomodern.nvim)\
 *Using "Moon" dark variant.*\
@@ -81,6 +96,17 @@ Relatively minimal compared to a lot of widely used themes.
 
 * [Gowall](https://github.com/Achno/gowall)\
 Utility for changing wallpaper colors to match colorscheme
+
+* [Colloid icon theme]()\
+Icon theme
+
+* [Adwaita]()\
+Default gtk4 theme
+  * [Adwaita gtk3]()\
+  Port of gtk4 adwaita to gtk3
+
+* [Breeze]()\
+QT theme
 
 ### Prettier-Terminal
 
@@ -91,6 +117,9 @@ Cat with colored output
 
 * [Lsd](https://github.com/lsd-rs/lsd)\
 Ls with colored output
+
+* [Glow](https://github.com/charmbracelet/glow)\
+Markdown rendering in the terminal.
 
 * [Starship](https://github.com/starship/starship)\
 Shell prompt
@@ -111,8 +140,12 @@ Neovim "distro" (config) for truly lazy people like me.
 Terminal Multiplexer.
   * [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager)\
   Plugin manager for Tmux
-  * [Fzf](https://github.com/junegunn/fzf)\
-  Tool for fuzzy finding in the terminal
+
+* [Fzf](https://github.com/junegunn/fzf)\
+Tool for fuzzy finding in the terminal
+
+* [Zoxide]()\
+Better cd
 
 * [Superfile](https://github.com/yorukot/superfile)\
 The most modern looking file manager that I've tried.
@@ -122,14 +155,14 @@ See also [lf](https://github.com/gokcehan/lf) and [vifm](https://github.com/vifm
 
 ### Misc
 
-* [Glow](https://github.com/charmbracelet/glow)\
-Markdown rendering in the terminal.
-
 * [Paru](https://github.com/Morganamilo/paru)\
 AUR Helper.
 
 * [GNU Stow](https://www.gnu.org/software/stow/)\
 Symlink manager
+
+* [Xdg-ninja]()\
+Helps to clean up home directory
 
 * [Trash-cli](https://github.com/andreafrancia/trash-cli)\
 Move files to the "trash" instead of deleting them

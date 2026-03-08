@@ -1,0 +1,71 @@
+@import "colors-moon.css";
+
+* {
+  all: unset;
+  border-radius: 8px;
+  -gtk-icon-size: 16px;
+}
+
+window#osd {
+  background: transparent;
+}
+
+#container {
+  background-color: alpha(@background, 0.9);
+  border: 1px solid @border;
+  box-shadow: 0px 0px 1px 1px @shadow;
+  color: @text;
+  padding: 5px;
+  margin: 1px;
+}
+
+progressbar {
+  /*background: @background-alt;
+  box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);*/
+  color: @text;
+  padding: 5px;
+  min-width: 10rem;
+}
+
+trough {
+  min-height: 20px;
+  margin: 5px 0px 5px 0px;
+  padding: 0px 5px 0px 5px;
+  background-color: @background-alt;
+  box-shadow:
+    0 0 1px 1px inset alpha(@border, 0.3),
+    1px 1px 1px 1px @shadow;
+}
+
+progress {
+  background: @text-dim;
+  /* border-right: 2px solid @border; */
+  transition: all 0.25s ease;
+  box-shadow: 0 0 1px 1px inset alpha(@background, 0.3);
+  min-height: 10px;
+}
+
+image,
+label {
+  /*background: alpha(@background-alt, 0.9);
+  box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);*/
+  padding-left: 5px;
+  color: @text;
+  font-family: "Inter Regular";
+  font-size: 14px;
+  font-weight: bold;
+  min-width: 10px;
+  min-height: 15px;
+  margin-right: -7px;
+  margin-left: 1px;
+}
+
+image {
+  color: @text-dim;
+}
+
+progressbar:disabled,
+image:disabled,
+label:disabled {
+  opacity: 0.5;
+}

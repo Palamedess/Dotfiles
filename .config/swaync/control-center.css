@@ -1,0 +1,190 @@
+* {
+  font-family: Inter Nerd Font Propo;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.control-center {
+  background: alpha(@background, 0.9);
+  border: 1px solid @border;
+  box-shadow: 0px 0px 1px 1px @shadow;
+  margin: 1px;
+  border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.control-center-list {
+  color: @text;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid @border;
+  background: transparent;
+}
+
+.notification-group-headers {
+  margin: 5px;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.control-center .notification-background .close-button,
+.notification-group-close-button {
+  opacity: 0;
+}
+
+.control-center .notification-background {
+  background: alpha(@background, 0.9);
+}
+
+.widget-title {
+  color: @text;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: medium;
+  border-radius: 8px;
+}
+
+.widget-title > button {
+  background: @background-light;
+  color: @text;
+  border: 1px solid alpha(@border, 0.2);
+  box-shadow: 1px 1px 1px 1px @shadow;
+  border-radius: 8px;
+  font-size: small;
+  padding: 3px;
+  margin: 2px;
+}
+
+.widget-title > button:hover {
+  opacity: 0.5;
+}
+
+.widget-dnd {
+  background: @background-light;
+  color: @text;
+  border: 1px solid alpha(@border, 0.2);
+  box-shadow: 1px 1px 1px 1px @shadow;
+  margin: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  padding: 2px 5px 2px 5px;
+}
+
+.widget-dnd > switch {
+  background: @shadow;
+  min-height: 10px;
+  padding: 2px;
+  border: 1px solid alpha(@border, 0.2);
+  border-radius: 8px;
+}
+
+.widget-dnd > switch:checked {
+  background: @blue;
+  border: 1px solid alpha(@border, 0.2);
+  box-shadow: 1px 1px 1px 1px @shadow;
+}
+
+.widget-dnd > switch slider {
+  min-height: 5px;
+  background: @blue;
+  border: 1px solid alpha(@border, 0.2);
+  border-radius: 8px;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @background;
+}
+
+.widget-label {
+  margin: 10px;
+}
+
+.widget-label > label {
+  font-size: 1rem;
+  color: @text;
+}
+
+.widget-buttons-grid {
+  /*background: @background-light;*/
+  padding: 10px 0px 10px 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.widget-buttons-grid label {
+  font-size: x-large;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @background-alt;
+  box-shadow:
+    0 0 1px 1px inset alpha(@border, 0.3),
+    1px 1px 1px 1px @background;
+  margin: 0 6px 0 6px;
+  min-height: 35px;
+  min-width: 50px;
+  border-radius: 8px;
+  color: @text;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild:first-child > button {
+  background: alpha(@brightred, 0.9);
+  color: @background;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild:last-child > button {
+  background: alpha(@brightblue, 0.9);
+  color: @background;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  opacity: 0.5;
+}
+
+.widget-menubar > box > .menu-button-bar > button {
+  border: none;
+  background: transparent;
+}
+
+.topbar-buttons > button {
+  color: @text;
+  border: none;
+  background: transparent;
+}
+
+.widget-backlight,
+.widget-volume {
+  background: @background-light;
+  color: @text;
+  border: 1px solid alpha(@border, 0.2);
+  box-shadow: 1px 1px 1px 1px @shadow;
+  margin: 1px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  border: 1px solid alpha(@border, 0.2);
+}
+
+scale {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+trough {
+  min-height: 6px;
+  background-color: @background;
+  border-radius: 8px;
+}
+
+highlight {
+  background-color: @blue;
+  border-radius: 8px;
+}

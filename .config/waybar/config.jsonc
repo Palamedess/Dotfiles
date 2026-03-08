@@ -1,11 +1,13 @@
 {
   "reload_style_on_change": true,
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
   "spacing": 5,
   "height": 36,
   "margin": 0,
   "margin-bottom": -1,
+  "on-sigusr1": "toggle",
+  "on-sigusr2": "restart",
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -18,10 +20,10 @@
     "network",
     "pulseaudio",
     "power-profiles-daemon",
-    "custom/notification",
     "memory",
     "cpu",
-    "battery"
+    "battery",
+    "custom/notification",
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -183,7 +185,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "omarchy-launch-or-focus-tui wiremix",
+    /*"on-click": "omarchy-launch-or-focus-tui wiremix",*/
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
