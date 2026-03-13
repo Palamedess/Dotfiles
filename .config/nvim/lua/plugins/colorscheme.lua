@@ -31,11 +31,15 @@ return {
           guibg = Snacks.util.color("FloatBorder", "bg"),
           guifg = Snacks.util.color("FloatBorder"),
         },
+        MsgArea = {
+          guibg = "#191919",
+          guifg = colors.string,
+        },
         FzfLuaBorder = { guibg = colors.bg, guifg = colors.comment },
-        NoiceCmdlinePopupBorder = { guifg = colors.func },
+        NoiceCmdlinePopupBorder = { guifg = colors.comment },
         -- Lazy popup menu
-        LazyNormal = { guibg = "#121212", guifg = colors.comment },
-        LazyDimmed = { guibg = "#121212", guifg = colors.bg },
+        LazyNormal = { guibg = "#1b1b1b", guifg = colors.comment },
+        LazyDimmed = { guibg = "#1b1b1b", guifg = colors.bg },
         LazyBackdrop = { guifg = colors.bg },
         -- Indent line
         SnacksIndent = { guifg = colors.visual },

@@ -25,8 +25,8 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -A --color=always $realpath'
 #zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
@@ -45,5 +45,9 @@ eval "$(zoxide init zsh)"
 if command -v tmux &> /dev/null && [ -n "$TMUX" ]; then
   eval macchina -c "$XDG_CONFIG_HOME"/macchina/macchina-tmux.toml
 else
-  eval fetch
+  if [[ $((RANDOM % 30)) -eq 1 ]]; then
+    eval earlfetch
+  else
+    eval fetch
+  fi
 fi

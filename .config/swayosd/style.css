@@ -20,26 +20,24 @@ window#osd {
 }
 
 progressbar {
-  /*background: @background-alt;
-  box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);*/
-  color: @text;
-  padding: 5px;
-  min-width: 10rem;
-}
-
-trough {
-  min-height: 20px;
-  margin: 5px 0px 5px 0px;
-  padding: 0px 5px 0px 5px;
-  background-color: @background-alt;
+  background: @background-alt;
   box-shadow:
     0 0 1px 1px inset alpha(@border, 0.3),
     1px 1px 1px 1px @shadow;
+  color: @text;
+  margin: 5px;
+  min-height: 20px;
+}
+
+trough {
+  background-color: @shadow;
+  min-height: 10px;
+  margin: 5px;
+  min-width: 10rem;
 }
 
 progress {
-  background: @text-dim;
-  /* border-right: 2px solid @border; */
+  background: @blue;
   transition: all 0.25s ease;
   box-shadow: 0 0 1px 1px inset alpha(@background, 0.3);
   min-height: 10px;

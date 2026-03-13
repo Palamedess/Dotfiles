@@ -1,14 +1,18 @@
 --color=fg:#4c4c57,bg:#111111,hl:#6d748c,gutter:#1b1b1b --color=fg+:#C2C2CF,bg+:#1B1B1B,hl+:#6d748c
 --color=info:#b6b3a5,prompt:#6A6A7A,pointer:#817882
 --color=marker:#858599,spinner:#858599,header:#858599
---style=full
+--style=minimal
+--height='95%'
+--min-height=10
 --layout="reverse"
+--padding=0,2
+--ansi
 --prompt=""
 --marker="*"
 --pointer=""
+--multi
 --cycle
---padding 1,10%
---preview="bat --color=always --style=header,grid --line-range :300 {}"
+--preview="bat --color=always --style=header,grid {}"
 --bind="?:toggle-preview"
 --bind="ctrl-u:preview-page-up"
 --bind="ctrl-d:preview-page-down"

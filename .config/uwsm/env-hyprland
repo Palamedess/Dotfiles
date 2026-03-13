@@ -1,6 +1,15 @@
 # Hyprland
-export HYPRCURSOR_THEME=MyCursor
-export HYPRCURSOR_SIZE=24
+#export HYPRCURSOR_THEME=MyCursor
+#export HYPRCURSOR_SIZE=24
+
+# Xcursor
+export XCURSOR_THEME="breeze_cursors"
+export XCRUSOR_SIZE=22
 
 # User
 export SCRIPTDIR=$HOME/.local/scripts
+
+# Nvidia
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export NVD_BACKEND=direct

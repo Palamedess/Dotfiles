@@ -1,13 +1,14 @@
 {
   "reload_style_on_change": true,
-  "layer": "bottom",
+  "layer": "top",
   "position": "top",
   "spacing": 5,
-  "height": 36,
+  "height": 44,
   "margin": 0,
-  "margin-bottom": -1,
   "on-sigusr1": "toggle",
-  "on-sigusr2": "restart",
+  "on-sigusr2": "reload",
+  "output": ["DP-1", "HDMI-A-1"],
+
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -16,15 +17,16 @@
     "clock",
   ],
   "modules-right": [
-    "backlight",
+    "group/tray-expander",
+    "custom/hueshift",
     "network",
+    "bluetooth",
     "pulseaudio",
-    "power-profiles-daemon",
     "memory",
     "cpu",
-    "battery",
-    "custom/notification",
+    "custom/notification"
   ],
+
   "hyprland/workspaces": {
     "on-click": "activate",
     "sort-by": "number",
@@ -39,12 +41,13 @@
 		  "7": "七",
 		  "8": "八",
 		  "9": "九",
-		  "10": "十",
     },
     "persistent-workspaces": {
-      "*": 4,
+      "DP-1": [1, 2, 3],
+      "HDMI-A-1": [9, 8, 6]
     }
   },
+
   "hyprland/window": {
     "format": "{title} - {class}",
     "tooltip": false,
@@ -58,7 +61,43 @@
       "(.*Discord)...(.*).. (.*)": "  $2 ",
     }
   },
-    "backlight": {
+
+  "group/tray-expander": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "custom/tray-icon",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/tray-icon",
+      "tray"
+    ]
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true
+  },
+
+  "custom/tray-icon": {
+    "format": "󰍜",
+    "tooltip": false,
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "max-length": 25,
+    "all-outputs": true,
+    "icon-size": 15,
+    "active-first": false,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-right": "close",
+  },
+
+  "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
     "tooltip-format": "{percent}%",
@@ -71,7 +110,8 @@
     ],
     "min-brightness": 5.0,
   },
-    "power-profiles-daemon": {
+
+  "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile:\n{profile}",
     "tooltip": true,
@@ -82,19 +122,24 @@
       "power-saver": " "
     }
   },
-   "cpu": {
+
+  "cpu": {
     "interval": 2,
     "format": " {usage}%",
-    "on-click": "exec uwsm app -- kitty btop"
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh btop",
+    "on-click-right": "uwsm-app -- $SCRIPTDIR/run-or-focus-gui.sh resources"
   },
-    "memory": {
+
+  "memory": {
     "interval": 2,
     "format": " {used:0.1f}G",
-    "on-click": "exec uwsm app -- kitty btop"
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh btop",
+    "on-click-right": "uwsm-app -- $SCRIPTDIR/run-or-focus-gui.sh resources"
   },
+
   "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%A, %h %d / %I:%M %p}",
+    "format-alt": "{:%I:%M %p}",
+    "format": "{:%A, %h %d - %I:%M %p}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -107,6 +152,7 @@
       },
     },
   },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -114,6 +160,19 @@
       "deactivated": ""
     }
   },
+
+  "custom/hueshift": {
+    "format": "{icon}",
+    "format-icons": {
+      "on": "󰖨",
+      "off": ""
+    },
+    "exec-if": "which hyprsunset",
+    "exec": "uwsm-app -- $XDG_CONFIG_HOME/waybar/scripts/hueshift.sh setup",
+    "on-click": "uwsm-app -- $XDG_CONFIG_HOME/waybar/scripts/hueshift.sh",
+    "return-type": "json"
+  },
+
   "network": {
     "format-icons": [
       "󰤯",
@@ -133,6 +192,7 @@
     "spacing": 1,
     /*"on-click": ""*/
   },
+
   "battery": {
     "format": "{capacity}% {icon}",
     "format-discharging": "{capacity}% {icon}",
@@ -176,18 +236,20 @@
       "critical": 10
     }
   },
+
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
     "format-connected": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    /*"on-click": ""*/
+    "tooltip-format": "Connected: {num_connections}",
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh bluetui",
   },
+
   "pulseaudio": {
     "format": "{icon}",
-    /*"on-click": "omarchy-launch-or-focus-tui wiremix",*/
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh wiremix",
     "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
+    "tooltip-format": "Volume: {volume}%",
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
@@ -198,6 +260,7 @@
       ]
     }
   },
+
   "custom/notification": {
     "tooltip": true,
     "format": "{icon}",
@@ -213,9 +276,9 @@
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
+    "exec": "uwsm-app -- swaync-client -swb",
+    "on-click": "$XDG_CONFIG_HOME/waybar/scripts/control-center.sh",
+    "on-click-right": "uwsm-app -- swaync-client -d -sw",
     "escape": true
   },
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "control-center-preferred-output": "eDP-1",
-  "notification-window-preferred-output": "eDP-1",
+  /*"control-center-preferred-output": "DP-1",
+  "notification-window-preferred-output": "DP-1",*/
   "positionX": "right",
   "positionY": "top",
   "control-center-margin-top": 5,
@@ -23,34 +23,35 @@
   "timeout": 10,
   "timeout-low": 5,
   "timeout-critical": 0,
-  "notification-window-width": 300,
+  "notification-window-width": 200,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "transition-time": 0,
+  "transition-time": 200,
   "hide-on-clear": true,
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
     "buttons-grid",
-    "volume",
-    "backlight",
-    "dnd",
+    /*"volume",
+    "backlight",*/
     "title",
-    "notifications"
+    "dnd",
+    "notifications",
+    "mpris"
   ],
   "widget-config": {
     "title": {
       "text": "Notifications",
-      "clear-all-button": true,
-      "button-text": "󰆴 Clear All"
+      "clear-all-button": false,
+      "button-text": "󰆴 clear"
     },
     "inhibitors": {
       "text": "Inhibitors",
-      "button-text": "Clear All",
+      "button-text": "clear",
       "clear-all-button": true
     },
     "dnd": {
-      "text": "Do Not Disturb"
+      "text": "do not disturb"
     },
     "volume": {
       "label": "",
@@ -59,26 +60,32 @@
       "show-per-app-icon": true,
       "expand-button-label": "",
       "collapse-button-label": "",
-      "empty-list-label": "No players"
+      "empty-list-label": "no players"
     },
     "backlight": {
       "label": "󰃠",
       "subsystem": "backlight",
       "device": "intel_backlight"
     },
+    "mpris": {
+      "show-album-art": "always",
+      "image-size": 96,
+      "image-radius": 8
+    },
     "buttons-grid": {
       "actions": [
         {
             "label": "󰐥",
-            "command": "systemctl poweroff"
+            "command": "poweroff"
         },
         {
             "label": "󰜉",
-            "command": "systemctl reboot"
+            "command": "reboot"
         },
         {
             "label": "󰌾",
-            "command": "$HOME/.config/hypr/scripts/lock-session.sh"
+            /*"command": "$HOME/.config/hypr/scripts/lock-session.sh"*/
+            "command": "notify-send WIP"
         },
         {
             "label": "󰍃",

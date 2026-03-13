@@ -1,0 +1,46 @@
+@import "./colors-moon.css";
+
+window {
+  background: none;
+}
+
+#box {
+  /* Define attributes of the box surrounding icons here */
+  background: alpha(@background-alt, 0.9);
+  border-radius: 8px;
+  border: 1px solid alpha(@border, 0.3);
+  border-right: none;
+  box-shadow: 0px 0px 1px 1px @hard-shadow;
+  margin: 1px;
+  padding: 5px;
+}
+
+#active {
+  /* This is to underline the button representing the currently active window */
+  border-bottom: solid 1px @border;
+}
+
+button,
+image {
+  background: none;
+  border-style: none;
+  box-shadow: none;
+  color: @text-dim;
+}
+
+button {
+  padding: 4px;
+  border-radius: 8px;
+  margin-left: 5px;
+  border: none;
+  color: @text;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: @visual;
+}
+
+button:focus {
+  box-shadow: none;
+}

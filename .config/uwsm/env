@@ -1,7 +1,8 @@
 # Backend
 export GDK_BACKEND=wayland,x11
-export QT_QPA_PLATFORM=wayland;xcb
+export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM=wayland;xcb
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 # QT
@@ -10,12 +11,9 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_QPA_PLATFORMTHEME=qt6ct
 
 # GTK
-export GTK_THEME=
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-
-# Xcursor
-export XCURSOR_THEME="breeze_cursors"
-export XCRUSOR_SIZE=22
+#export LD_PRELOAD="/usr/lib/libgtk-nocsd.so"
+#export GTK_CSD=0
 
 # XDG
 export XDG_CURRENT_DESKTOP=Hyprland
