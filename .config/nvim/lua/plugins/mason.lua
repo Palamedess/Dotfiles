@@ -9,6 +9,8 @@ return {
       "stylua",
       "shfmt",
       "lua-language-server",
+      "prettierd",
+      "qmlls",
     }
   end,
 }

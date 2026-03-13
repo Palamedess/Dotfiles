@@ -1,0 +1,13 @@
+long_uptime = false
+long_shell = true
+long_kernel = false
+current_shell = true
+physical_cores = true
+memory_percentage = true
+
+theme = "tmux"
+show = [
+  "Shell",
+  "Packages",
+  "Uptime"
+]

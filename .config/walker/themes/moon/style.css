@@ -1,0 +1,169 @@
+/* Color definitions */
+@define-color background       #111111;
+@define-color background-light #1b1b1b;
+@define-color foreground       #A1A1AC;
+@define-color foreground-dim   #4c4c57;
+@define-color hard-shadow      #0A0A0A;
+@define-color soft-shadow      @background;
+@define-color border           #303030;
+@define-color selected         #242424;
+@define-color inactive         #191919;
+@define-color error-background #ab836c;
+@define-color error-foreground @foreground;
+
+/* Reset all styles */
+* {
+  all: unset;
+  font-family: Inter;
+}
+
+/* Window wrapper */
+.box-wrapper {
+  background: transparent;
+  background-color: alpha(@background, 0.9);
+  border: 1px solid @border;
+  box-shadow: 0px 0px 1px 1px @hard-shadow;
+  border-radius: 8px;
+  margin-top: 31px;
+}
+
+/* Input field */
+.search-wrapper {
+  box-shadow: -1px 0px 1px 1px alpha(@border, 0.3);
+  padding: 5px 0px 5px 0px;
+  margin: -1px;
+}
+
+.search-icon {
+  color: @foreground-dim;
+  -gtk-icon-size: 20px;
+  margin: 14px;
+}
+
+.input {
+  caret-color: @foreground;
+  color: @foreground-dim;
+}
+
+.input placeholder {
+  /* opacity: 0.5; */
+  font-weight: bold;
+}
+
+.scroll {
+  min-height: 245px;
+}
+
+/* List items */
+.list {
+  color: @foreground-dim;
+  margin: 10px;
+}
+
+.item-box {
+  border-radius: 10px;
+  min-height: 45px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 1px;
+}
+
+.item-box:last-child {
+  margin-bottom: 0px;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+  background-color: alpha(@selected, 0.5);
+  box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);
+  color: @foreground;
+}
+
+.item-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: -4px;
+}
+
+.item-subtext {
+  color: @foreground-dim;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.item-image,
+.item-image-text {
+  margin-right: 0px;
+}
+
+/* Quick activation labels */
+.item-quick-activation {
+  font-size: 12px;
+  min-width: 30px;
+  background: alpha(@border, 0.25);
+  box-shadow:
+    0 0 1px 1px inset alpha(@border, 0.2),
+    1px 1px 1px 1px @soft-shadow;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+/* Placeholders */
+.placeholder,
+.elephant-hint {
+  color: @foreground;
+  /* opacity: 0.5; */
+}
+
+/* Keybinds display */
+.keybinds {
+  font-size: 12px;
+  background-color: alpha(#000000, 0.1);
+  box-shadow: 0px -1px 0px 0px alpha(@border, 0.2);
+  padding: 5px;
+}
+
+.keybind-bind {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: @foreground-dim;
+  font-weight: normal;
+  background-color: alpha(@background-light, 0.5);
+  box-shadow:
+    0 0 1px 1px inset alpha(@border, 0.3),
+    1px 1px 1px 1px @hard-shadow;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+/* Error display */
+.error {
+  padding: 10px;
+  background: @error-background;
+  color: @error-foreground;
+  border-radius: 5px;
+}
+
+/* Preview pane */
+.preview {
+  border-left: 1px solid @inactive;
+  padding: 10px;
+  color: @foreground;
+}
+
+/* Icon sizes */
+.normal-icons {
+  -gtk-icon-size: 24px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* Hide scrollbar */
+scrollbar {
+  opacity: 0;
+}

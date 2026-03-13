@@ -1,0 +1,20 @@
+if [ "$TERM" = "linux" ]; then
+    # Example color scheme:
+    echo -en "\e]P0191919" # Black
+    echo -en "\e]P1896956" # Red
+    echo -en "\e]P25F645F" # Green
+    echo -en "\e]P3918F84" # Yellow
+    echo -en "\e]P46A6A7A" # Blue
+    echo -en "\e]P5676068" # Magenta
+    echo -en "\e]P6575D70" # Cyan
+    echo -en "\e]P7616167" # White
+    echo -en "\e]P84c4c57" # Bright Black/Dark Grey
+    echo -en "\e]P9ab836c" # Bright Red
+    echo -en "\e]PA777d77" # Bright Green
+    echo -en "\e]PBb5b3a5" # Bright Yellow
+    echo -en "\e]PC858599" # Bright Blue
+    echo -en "\e]PD817882" # Bright Magenta
+    echo -en "\e]PE6d748c" # Bright Cyan
+    echo -en "\e]PFA1A1AC" # Bright White
+    clear # Clears screen artifacts that may appear
+fi

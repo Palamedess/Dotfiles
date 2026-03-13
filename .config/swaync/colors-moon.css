@@ -1,0 +1,25 @@
+@define-color background        @theme_bg_color;
+@define-color backgroundn       alpha(@theme_bg_color, 0.2);
+@define-color background-alt    alpha(#242424, 0.5);
+@define-color background-light  #1B1B1B;
+@define-color accent-bg         @theme_selected_bg_color;
+@define-color accent-fg         @theme_selected_fg_color;
+@define-color foreground        @theme_fg_color;
+@define-color border            #303030;
+@define-color shadow            #0E0E0E;
+@define-color text              #A1A1AC;
+@define-color text-dim          #4c4c57;
+
+@define-color red     #896956;
+@define-color green   #5F645F;
+@define-color yellow  #918F84;
+@define-color blue    #6A6A7A;
+@define-color voilet  #676068;
+@define-color cyan    #575D70;
+
+@define-color brightred     #ab836c;
+@define-color brightgreen   #777d77;
+@define-color brightyellow  #b5b3a5;
+@define-color brightblue    #858599;
+@define-color brightvoilet  #817882;
+@define-color brightcyan    #6d748c;

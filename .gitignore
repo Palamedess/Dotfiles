@@ -1,0 +1,10 @@
+.config/zsh/.zcompdump
+.config/zsh/.zsh_history
+.config/walker/restart-walker.sh
+
+.config/tmux/plugins/*
+!.config/tmux/plugins/tmux-mode-indicator
+!.config/tmux/plugins/tmp
+
+.config/superfile/theme
+!.config/superfile/theme/roseprime.conf

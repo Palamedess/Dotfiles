@@ -1,37 +1,40 @@
 spacing = 1
-padding = 1
+padding = 0
 
 hide_ascii = false
 prefer_small_ascii = true
 
 separator = "󰧂"
 #separator = ">"
-separator_color = "6"
-key_color = "4"
+separator_color = "green"
+key_color = "red"
 
 [custom_ascii]
-color = "7"
-path = "~/.config/macchina/themes/ascii"
+color = "Green"
+path = "~/.config/macchina/themes/sadpepe"
 
 [palette]
 type = "Full"
 visible = true
-glyph = " 󰄛 "
+glyph = "  "
 
 [box]
 title = " fetch! "
-border = "rounded"
-visible = true
+border = "double"
+visible = false
 
 [box.inner_margin]
-x = 0
+x = 1
 y = 0
 
 [keys]
-host = "Host"
-kernel = "Kernel"
-os = "OS"
-distro = "Distro"
-shell = "Shell"
-packages = "Packs"
-uptime = "Online"
+host = " User"
+kernel = "󰌽 Kernel"
+os = " OS"
+de = " DE"
+wm = " WM"
+distro = " Distro"
+terminal = " Term"
+shell = " Shell"
+packages = " Packs"
+uptime = "󰥔 Online"

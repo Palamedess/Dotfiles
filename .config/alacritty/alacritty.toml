@@ -1,5 +1,5 @@
 [general]
-import = [".\\neomodern_roseprime.toml"]
+import = [".\\neomodern_moon.toml"]
 
 [window]
 padding = { y = 0, x = 0 }

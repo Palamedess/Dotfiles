@@ -23,6 +23,22 @@ return {
           },
         },
       },
+      lemminx = {
+        settings = {
+          xml = {
+            catalogs = { "/etc/xml/catalog" },
+            server = {
+              workDir = "$XDG_CACHE_HOME/lemminx",
+            },
+          },
+        },
+      },
+      qmlls = {
+        cmd = {
+          "qmlls",
+          "-E",
+        },
+      },
     },
   },
 }

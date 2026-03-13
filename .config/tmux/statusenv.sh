@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Background colors back to front
-export bg0="black"
-export bg1="#161719"
+export bg0="#121212"
+export bg1="black"
 
 # Text
 export text1="black"
 export text2="brightblack"
-export text3="blue, nobold"
-export text4="brightyellow"
+export text3="green, nobold"
+export text4="$text3"
 
 # File path
 export file_path_bg="$bg0"
@@ -30,19 +30,25 @@ export active_tab_fg="$text4"
 export gaps="0"
 
 # Separators
-#export mlsep=''
-#export mrsep=''
 #export mlsep="▐"
 #export mrsep='▌'
-#export lsep=''
-#export rsep=''
 #export lsep="#[fg=$text3]▐"
 #export rsep="#[fg=$text3]▌"
 
-export mlsep=""
-export mrsep=""
-export lsep=""
-export rsep=""
+#export mlsep=""
+#export mrsep=""
+#export lsep=""
+#export rsep=""
+
+#export lsep=''
+#export rsep=''
+#export mlsep=''
+#export mrsep=''
+
+export lsep=''
+export rsep=''
+export mlsep="$lsep"
+export mrsep="$rsep"
 
 # Doesnt support circles lol
 #''

@@ -1,72 +1,71 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+ $username\
+$hostname\
+$directory\
+$character"""
+
+right_format = """
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration"""
+
 add_newline = false
 
-# A minimal left prompt
-format = " $directory$character"
-
-# no right prompt
-right_format = "$git_branch${custom.git_status_dirty}$git_status$cmd_duration"
-
-# Timeout for commands executed by starship (in milliseconds)
-command_timeout = 2000
-
-[username]
-show_always = true
-style_user = "blue"
-style_root = "red"
-format = '\[$user\] ($style)'
+[directory]
+truncation_length = 2
+use_os_path_sep = true
+style = "blue"
+read_only = " 󰌾"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [character]
-success_symbol = "[\\[INS \\]](bold bright-yellow)"
-error_symbol = "[\\[ERR \\]](bold red)"
-vimcmd_symbol = "[\\[NORM \\]](bold blue)"
-vimcmd_replace_one_symbol = "[\\[NORM \\]](bold blue)"
-vimcmd_replace_symbol = "[\\[REP \\]](bold bright-yellow)"
-vimcmd_visual_symbol = "[\\[VIS \\]](bold cyan)"
+success_symbol = "[󰊍](blue)"
+error_symbol = "[󰊍](red)"
+vimcmd_symbol = "[󰜱](green)"
 
-[directory]
-style = "blue"
-truncation_length = 1
-truncation_symbol = "…/"
-#truncation_length = 1
-#truncation_symbol = ""
-#fish_style_pwd_dir_length = 1
-
-# right prompt uses left space padding
 [git_branch]
-format = '[$branch]($style)'
-style = 'bold green'
+format = "[$symbol$branch]($style)"
+symbol = " "
+style = "white"
+
+[git_commit]
+commit_hash_length = 8
+tag_symbol = "󰓹 "
+disabled = false
+style = "bright-white"
 
 [git_status]
-format = "[($ahead_behind$stashed)]($style) "
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](bright-red) ($ahead_behind$stashed)]($style)"
 style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
 stashed = "≡"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+ahead = '[⇡${count}](bold green)'
+behind = '[⇣${count}](bold red)'
+diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}](bold red))'
 
-[custom.git_status_dirty]
-when = 'test -n "$(git status --porcelain 2>/dev/null)"'
-symbol = "•"
-style = "white"
-format = "[$symbol]($style)"
-shell = ["zsh", "--no-rcs", "--no-globalrcs"]
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+style = "bright-white"
 
 [cmd_duration]
-format = '[$duration]($style) '
-style = "yellow"
+format = "[$duration]($style) "
+style = "bright-white"
 
-[time]
-disabled = true
-time_format = "%R"
-style = "bg:color_bg1"
-format = '[  $time]($style)'
-
-[line_break]
-disabled = true
-
-[status]
-disabled = false
-pipestatus = true
-format = '[$symbol$int]($style)'
-symbol = '✘ '
-pipestatus_format = '\[$pipestatus\]($style)'
+[c]
+format = '(via [$symbol($version(-$name) )]($style))'
+[cpp]
+format = '(via [$symbol($version(-$name) )]($style))'
+[lua]
+format = '(via [$symbol($version )]($style))'
+[package]
+format = '(is [$symbol$version]($style) )'
+[rust]
+format = '(via [$symbol($version )]($style))'

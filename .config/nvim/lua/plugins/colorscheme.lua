@@ -5,12 +5,14 @@ return {
     config = function()
       require("neomodern").setup({
         bg = "alt",
-        theme = "roseprime",
+        theme = "moon",
         overrides = {
           hlgroups = {
             ["WinSeparator"] = { guifg = "$comment" },
             ["NormalFloat"] = { guibg = "$bg" },
             ["FloatBorder"] = { guibg = "$bg", guifg = "$visual" },
+            ["Cursor"] = { guibg = "$comment", guifg = "$fg", gui = "none" },
+            ["iCursor"] = { guibg = "$string", guifg = "$bg", gui = "italic" },
           },
         },
       })
@@ -30,9 +32,10 @@ return {
           guifg = Snacks.util.color("FloatBorder"),
         },
         FzfLuaBorder = { guibg = colors.bg, guifg = colors.comment },
+        NoiceCmdlinePopupBorder = { guifg = colors.func },
         -- Lazy popup menu
-        LazyNormal = { guibg = "#161719", guifg = colors.comment },
-        LazyDimmed = { guibg = "#161719", guifg = colors.bg },
+        LazyNormal = { guibg = "#121212", guifg = colors.comment },
+        LazyDimmed = { guibg = "#121212", guifg = colors.bg },
         LazyBackdrop = { guifg = colors.bg },
         -- Indent line
         SnacksIndent = { guifg = colors.visual },
@@ -54,6 +57,7 @@ return {
       -- about calling its own load function.
       -- Setting this does nothing and instead throws an error :|
       -- colorscheme = "neomodern",
+      termguicolors = true,
     },
   },
 }

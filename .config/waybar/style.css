@@ -1,0 +1,266 @@
+@import "./colors-moon.css";
+
+* {
+  border: none;
+  font-family: "Inter Nerd Font Propo";
+  font-size: 15px;
+}
+
+window#waybar {
+  background: transparent;
+  color: @text-dim;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+window#waybar.hidden {
+  background: black;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+window#waybar.visible {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#waybar > box {
+  background-color: alpha(@background-alt, 0.9);
+  border-bottom: 1px solid alpha(@border, 0.3);
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  margin-bottom: 1px;
+}
+
+window#waybar.empty,
+#window,
+#window:hover {
+  animation: none;
+  margin-left: 4px;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+  padding: 2px 0 4px 0;
+}
+
+.modules-right {
+  margin-right: 5px;
+}
+
+.modules-left {
+  margin-left: 5px;
+}
+
+/* Rounding */
+#battery,
+#workspaces,
+.module {
+  border-radius: 8px;
+}
+
+/* Color Consistency */
+#workspaces,
+#battery,
+#cpu,
+#memory {
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  border: 1px solid alpha(@border, 0.2);
+  background-color: alpha(@background, 0.9);
+  margin: 1px;
+}
+
+#workspaces button {
+  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  outline: 1px solid alpha(@border, 0.2);
+  background-color: alpha(@background, 0.9);
+}
+
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network,
+#custom-notification {
+  background: none;
+  /* background-color: alpha(@background-alt, 0.9); */
+}
+
+.module:not(#window) {
+  color: alpha(@text, 0.65);
+}
+
+/* Borders */
+.module:not(#clock):not(#title):not(#window) {
+  /* border: 1px solid alpha(@border, 0.5); */
+}
+#waybar > box {
+  /* border-bottom: 2px solid @border; */
+}
+
+/* Icon Spacing */
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network,
+#custom-notification {
+  margin: -5px;
+}
+
+.module:not(#title):not(#window) {
+  transition: all 0.25s linear;
+}
+
+.module:hover:not(#clock):not(#workspaces):not(#taskbar):not(#tray):not(
+    #window
+  ) {
+  color: @foreground;
+  text-shadow: none;
+  opacity: 0.5;
+}
+
+#clock {
+  color: @text;
+  font-weight: bold;
+}
+
+#battery {
+  transition: all 0.25s linear;
+}
+
+#workspaces {
+  background-color: @background;
+  padding: 4px;
+  margin-left: 4px;
+  transition: all 0.25s linear;
+  min-width: 135px;
+}
+
+#workspaces button {
+  background: transparent;
+  background-color: alpha(@hard-shadow, 0.4);
+  box-shadow: 0px 0px 1px 1px alpha(@border, 0.2) inset;
+  color: @text-dim;
+  border-radius: 6px;
+  padding: 0px;
+  min-width: 30px;
+  min-height: 4px;
+  margin-left: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button label {
+  font-size: 12px;
+}
+
+#workspaces button:first-child {
+  margin-left: 0px;
+}
+
+#workspaces button.active {
+  background: @blue;
+  color: @background;
+  min-width: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  transition: all 0.1s ease-in-out;
+  opacity: 0.75;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#hyprland-window.empty {
+  border: none;
+}
+
+#hyprland-window,
+#window,
+#cpu,
+#memory,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#clock,
+#power-profiles-daemon,
+#custom-notification {
+  min-width: 10px;
+}
+
+#clock {
+  font-size: 15px;
+}
+
+#backlight {
+  font-size: 18px;
+}
+
+.hidden {
+  min-height: 0px;
+  background: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+tooltip {
+  opacity: 1;
+  padding: 2px;
+  background: alpha(@background-alt, 0.9);
+  border: 1px solid @border;
+  border-radius: 8px;
+}
+
+tooltip label {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: medium;
+  font-weight: normal;
+  color: @text;
+}
+
+#pulseaudio,
+#wireplumber,
+#backlight,
+#power-profiles-daemon,
+#network,
+#custom-notification {
+  min-width: 40px;
+}
+
+#cpu,
+#battery,
+#memory {
+  min-width: 67px;
+}
+
+#battery.warning {
+  color: @red;
+}
+
+#battery.charging {
+  color: @blue;
+}
+
+#battery.critical.charging {
+  color: @brightred;
+}
+
+@keyframes blink2 {
+  to {
+    background-color: transparent;
+    color: @red;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: transparent;
+  color: @text-dim;
+  animation-name: blink2;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

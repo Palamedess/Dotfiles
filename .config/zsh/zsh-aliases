@@ -12,8 +12,9 @@ alias diff="batdiff"
 alias rm="trash"
 alias del="rm -i"
 
-# fetch
 alias fetch="macchina"
+
+alias paru="paru --color=always"
 
 # make wget use existing history file instead of creating one at the home root
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"

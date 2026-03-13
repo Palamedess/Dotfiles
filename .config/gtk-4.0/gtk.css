@@ -1,0 +1,7 @@
+@import "colors.css";
+
+window.nautilus-window .view {
+  margin-top: 5px;
+  background-color: #1b1b1b;
+  border-radius: 1em 0 0 0;
+}

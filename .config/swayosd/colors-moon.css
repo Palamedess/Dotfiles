@@ -1,0 +1,11 @@
+@define-color background     @theme_bg_color;
+@define-color backgroundm    alpha(@theme_bg_color, 0.9);
+@define-color backgroundn    alpha(@theme_bg_color, 0.2);
+@define-color background-alt alpha(#242424, 0.5);
+@define-color accent-bg      @theme_selected_bg_color;
+@define-color accent-fg      @theme_selected_fg_color;
+@define-color foreground     @theme_fg_color;
+@define-color border         #303030;
+@define-color shadow         #0E0E0E;
+@define-color text           @theme_text_color;
+@define-color text-dim       #4c4c57;

@@ -1,0 +1,221 @@
+{
+  "reload_style_on_change": true,
+  "layer": "bottom",
+  "position": "top",
+  "spacing": 5,
+  "height": 36,
+  "margin": 0,
+  "margin-bottom": -1,
+  "on-sigusr1": "toggle",
+  "on-sigusr2": "restart",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock",
+  ],
+  "modules-right": [
+    "backlight",
+    "network",
+    "pulseaudio",
+    "power-profiles-daemon",
+    "memory",
+    "cpu",
+    "battery",
+    "custom/notification",
+  ],
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "sort-by": "number",
+    "format": "{icon}",
+    "format-icons": {
+		  "1": "一",
+		  "2": "二",
+		  "3": "三",
+		  "4": "四",
+		  "5": "五",
+		  "6": "六",
+		  "7": "七",
+		  "8": "八",
+		  "9": "九",
+		  "10": "十",
+    },
+    "persistent-workspaces": {
+      "*": 4,
+    }
+  },
+  "hyprland/window": {
+    "format": "{title} - {class}",
+    "tooltip": false,
+    "expand": true,
+    "max-length": 45,
+    "rewrite": {
+      " - ": "Empty Workspace", // if no window is focused, a single dash is displayed, this removes it
+      "nvim .*?": " $1",
+      "(.*) - kitty": "  [ $1 ] ",
+      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+      "(.*Discord)...(.*).. (.*)": "  $2 ",
+    }
+  },
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "tooltip-format": "{percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "min-brightness": 5.0,
+  },
+    "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile:\n{profile}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰓅",
+      "performance": " ",
+      "balanced": " ",
+      "power-saver": " "
+    }
+  },
+   "cpu": {
+    "interval": 2,
+    "format": " {usage}%",
+    "on-click": "exec uwsm app -- kitty btop"
+  },
+    "memory": {
+    "interval": 2,
+    "format": " {used:0.1f}G",
+    "on-click": "exec uwsm app -- kitty btop"
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%A, %h %d / %I:%M %p}",
+    "tooltip-format": "<span>{calendar}</span>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-click-right": "mode",
+      "format": {
+        "month": "<span color='#A1A1AC'><b>{}</b></span>",
+        "weekdays": "<span color='#ab836c'><b>{}</b></span>",
+        "today": "<span color='#858599'><b>{}</b></span>",
+      },
+    },
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "network": {
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    /*"on-click": ""*/
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-plugged": " {capacity}%",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "format-full": "󰂅 {capacity}%",
+    /*"tooltip-format-discharging": "{power:>1.0f}W↓ {timeTo}",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {timeTo}",*/
+    "tooltip-format-discharging": "↓ {timeTo}",
+    "tooltip-format-charging": "↑ {timeTo}",
+    "interval": 5,
+    /*"on-click": ""*/
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    /*"on-click": ""*/
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    /*"on-click": "omarchy-launch-or-focus-tui wiremix",*/
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+}
