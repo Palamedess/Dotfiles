@@ -4,7 +4,8 @@
   all: unset;
   border: none;
   font-family: "Inter Nerd Font Propo";
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
   min-height: 4px;
 }
 
@@ -27,11 +28,13 @@ window#waybar.visible {
 
 #waybar > box {
   background-color: alpha(@background-alt, 0.9);
-  border-bottom: 1px solid alpha(@border, 0.3);
-  box-shadow: 1px 1px 1px 1px @hard-shadow;
+  border: 1px solid alpha(@border, 0.3);
+  box-shadow: 0px 0px 1px 1px @hard-shadow;
+  margin: 5px;
   margin-bottom: 1px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 8px;
 }
 
 window#waybar.empty,
@@ -70,9 +73,10 @@ window#waybar.empty,
 #power-profiles-daemon,
 #network,
 #bluetooth,
-#custom-hueshift,
+#custom-hyprsunset,
 box#tray-expander,
 #custom-notification {
+  font-size: 16px;
   background: none;
   /* background-color: alpha(@background-alt, 0.9); */
 }
@@ -94,6 +98,11 @@ box#tray-expander {
   opacity: 0.5;
 }
 
+box#tray-expander.hidden {
+  opacity: 0;
+  transition: all 0.25s linear;
+}
+
 #tray {
   color: @text;
   margin-right: 5px;
@@ -107,7 +116,7 @@ box#tray-expander {
 }
 
 #workspaces {
-  padding: 3px;
+  padding: 2px;
 }
 
 #workspaces > box {
@@ -119,11 +128,12 @@ box#tray-expander {
 #workspaces button {
   background: transparent;
   background-color: alpha(@hard-shadow, 0.4);
+  box-shadow: none;
+  border: 1px solid alpha(@border, 0.3);
   color: @text-dim;
   border-radius: 6px;
-  padding: 0px;
-  min-width: 30px;
   min-height: 0;
+  min-width: 25px;
   margin: 1px;
   margin-left: 2px;
   transition: all 0.3s ease-in-out;
@@ -143,7 +153,6 @@ box#tray-expander {
 #workspaces button.active {
   background: @blue;
   color: @background;
-  min-width: 40px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -172,15 +181,15 @@ tooltip {
   opacity: 1;
   padding: 1px;
   margin: 5px;
-  background: alpha(@background-alt, 0.9);
-  border: 1px solid @border;
+  background: alpha(@background, 0.9);
+  border: 1px solid alpha(@border, 0.3);
   box-shadow: 1px 1px 1px 1px @hard-shadow;
   border-radius: 8px;
 }
 
 tooltip label {
   font-family: "JetBrainsMono Nerd Font Propo";
-  font-size: medium;
+  font-size: small;
   font-weight: normal;
   color: @text;
 }
@@ -191,11 +200,14 @@ tooltip label {
 #power-profiles-daemon,
 #network,
 #bluetooth,
-box#tray-expander,
-#custom-hueshift,
+#custom-hyprsunset,
 #custom-notification {
   padding: 1px;
-  padding-left: 8px;
+  min-width: 24px;
+}
+
+box#tray-expander {
+  padding: 1px;
   padding-right: 8px;
 }
 

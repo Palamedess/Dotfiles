@@ -1,6 +1,7 @@
 * {
   font-family: Inter Nerd Font Propo;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .control-center {
@@ -247,11 +248,10 @@ picture.mpris-background {
 }
 
 .widget-mpris-title {
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1rem;
 }
 
 .widget-mpris-subtitle {
-  font-weight: 500;
   font-size: 0.8rem;
 }

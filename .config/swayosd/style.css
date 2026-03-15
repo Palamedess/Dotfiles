@@ -12,10 +12,10 @@ window#osd {
 
 #container {
   background-color: alpha(@background, 0.9);
-  border: 1px solid @border;
+  border: 1px solid alpha(@border, 0.3);
   box-shadow: 0px 0px 1px 1px @shadow;
   color: @text;
-  padding: 5px;
+  padding: 10px;
   margin: 1px;
 }
 
@@ -47,15 +47,12 @@ image,
 label {
   /*background: alpha(@background-alt, 0.9);
   box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);*/
-  padding-left: 5px;
   color: @text;
   font-family: "Inter Regular";
   font-size: 14px;
   font-weight: bold;
   min-width: 10px;
   min-height: 15px;
-  margin-right: -7px;
-  margin-left: 1px;
 }
 
 image {
