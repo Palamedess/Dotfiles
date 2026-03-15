@@ -1,4 +1,4 @@
-@import "./colors.css";
+@import "colors.css";
 
 .titlebar .title {
   background: transparent;
@@ -37,8 +37,17 @@
   min-width: 0;
 }
 
-window.nautilus-window .view {
-  margin-top: 5px;
-  background-color: #1b1b1b;
-  border-radius: 1em 0 0 0;
+window.nautilus-window .nautilus-grid-view {
+  background-color: @card_bg_color;
+  border-radius: 8px 0;
+  border-top: 1px solid alpha(@borders, 0.3);
+  border-left: 1px solid alpha(@borders, 0.3);
+}
+
+window.nautilus-window .content-pane {
+  background-color: @window_bg_color;
+}
+
+window.nautilus-window .content-pane .top-bar {
+  background-color: @window_bg_color;
 }
