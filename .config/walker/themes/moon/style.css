@@ -3,7 +3,7 @@
 @define-color background-light #1b1b1b;
 @define-color foreground       #A1A1AC;
 @define-color foreground-dim   #4c4c57;
-@define-color hard-shadow      #0A0A0A;
+@define-color hard-shadow      #0E0E0E;
 @define-color soft-shadow      @background;
 @define-color border           #303030;
 @define-color selected         #242424;
@@ -29,7 +29,7 @@
 
 /* Input field */
 .search-wrapper {
-  box-shadow: -1px 0px 1px 1px alpha(@border, 0.3);
+  box-shadow: -1px 0px 1px 1px alpha(@border, 0.2);
   padding: 5px 0px 5px 0px;
   margin: -1px;
 }
@@ -75,7 +75,7 @@
 child:hover .item-box,
 child:selected .item-box {
   background-color: alpha(@selected, 0.5);
-  box-shadow: 0 0 1px 1px inset alpha(@border, 0.3);
+  box-shadow: 0 0 1px 1px inset alpha(@border, 0.2);
   color: @foreground;
 }
 
@@ -132,7 +132,7 @@ child:selected .item-box {
   font-weight: normal;
   background-color: alpha(@background-light, 0.5);
   box-shadow:
-    0 0 1px 1px inset alpha(@border, 0.3),
+    0 0 1px 1px inset alpha(@border, 0.2),
     1px 1px 1px 1px @hard-shadow;
   border-radius: 5px;
   padding: 5px;

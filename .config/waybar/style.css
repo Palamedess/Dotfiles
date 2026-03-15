@@ -45,8 +45,8 @@ window#waybar.empty,
 .modules-right,
 .modules-center,
 .modules-left {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /* Rounding */
@@ -64,7 +64,7 @@ window#waybar.empty,
   box-shadow: 1px 1px 1px 1px @hard-shadow;
   border: 1px solid alpha(@border, 0.2);
   background-color: alpha(@background, 0.9);
-  margin: 1px;
+  margin: 2px;
 }
 
 #pulseaudio,
