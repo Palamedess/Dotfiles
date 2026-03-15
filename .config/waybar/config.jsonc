@@ -12,6 +12,7 @@
   "output": ["DP-1", "HDMI-A-1"],
 
   "modules-left": [
+    "custom/wleave",
     "hyprland/workspaces",
     "hyprland/window"
   ],
@@ -29,6 +30,11 @@
     "custom/notification"
   ],
 
+  "custom/wleave": {
+    "format": "󰗽",
+    "on-click": "uwsm-app -- wleave",
+  },
+  
   "hyprland/workspaces": {
     "on-click": "activate",
     "sort-by": "number",

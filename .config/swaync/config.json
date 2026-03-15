@@ -31,8 +31,8 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
-    "buttons-grid",
-    /*"volume",
+    /*"buttons-grid",
+    "volume",
     "backlight",*/
     "title",
     "dnd",

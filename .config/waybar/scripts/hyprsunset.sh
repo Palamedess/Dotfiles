@@ -1,9 +1,9 @@
 #!/bin/env bash
 
 print_status() {
-  if [[ -z "$1" ]]; then
+  if [[ -n "$1" && -n "$2" ]]; then
     echo '{"alt": "on", "text": "off"}'
-  elif [[ -n "$1" ]]; then
+  else
     echo '{"alt": "off", "text": "on"}'
   fi
 }
@@ -16,20 +16,25 @@ loop() {
     local last="$first"
     first=$(pidof hyprsunset)
     if [[ "$last" -ne "$first" ]]; then
-      print_status "$first"
+      print_status "$first" "$(pidof nerdshade)"
     fi
   done
   exit
 }
 
 toggle_sunset() {
-  local pid
-  pid=$(pidof hyprsunset)
-
-  if [[ -z "$pid" ]]; then
+  local sun_pid
+  sun_pid=$(pidof hyprsunset)
+  local shade_pid
+  shade_pid=$(pidof nerdshade)
+  if [[ -z "$sun_pid" ]]; then
     setsid uwsm-app -- hyprsunset &
     setsid uwsm-app -- nerdshade -longitude -123.113952 -latitude 49.260872 -loop &
-  elif [[ -n "$pid" ]]; then
+  elif [[ -n "$sun_pid" ]]; then
+    if [[ -z "$shade_pid" ]]; then
+      setsid uwsm-app -- nerdshade -longitude -123.113952 -latitude 49.260872 -loop &
+      return
+    fi
     killall hyprsunset
     killall nerdshade
   fi
