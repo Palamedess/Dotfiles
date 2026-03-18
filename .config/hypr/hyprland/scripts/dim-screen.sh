@@ -6,7 +6,8 @@ if [[ -z "$tmpfile" ]]; then
 fi
 
 if [[ "$1" == "undim" ]]; then
-  if [[ $(cat "$tmpfile") == 1 ]]; then
+  shade=$(pidof nerdshade)
+  if [ "$(cat "$tmpfile")" == 1 ] && [ -z "$shade" ]; then
     setsid uwsm-app -- nerdshade -longitude -123.113952 -latitude 49.260872 -loop &
   else
     killall hyprsunset
