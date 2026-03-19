@@ -6,7 +6,6 @@
   font-family: "Inter Nerd Font Propo";
   font-size: 14px;
   font-weight: 600;
-  min-height: 4px;
 }
 
 window#waybar {
@@ -34,7 +33,7 @@ window#waybar.visible {
   margin-bottom: 1px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 window#waybar.empty,

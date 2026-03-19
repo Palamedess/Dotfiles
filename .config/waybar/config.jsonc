@@ -76,7 +76,7 @@
   },
 
   "tray": {
-    "icon-size": 21,
+    "icon-size": 20,
     "spacing": 10,
     "show-passive-items": true
   },

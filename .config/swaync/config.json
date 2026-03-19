@@ -17,7 +17,7 @@
   "layer-shell": true,
   "cssPriority": "user",
   "notification-icon-size": 24,
-  "notification-body-image-height": 100,
+  "notification-body-image-height": 200,
   "notification-body-image-width": 200,
   "notification-2fa-action": false,
   "timeout": 10,
