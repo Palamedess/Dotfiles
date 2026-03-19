@@ -1,30 +1,25 @@
 * {
   font-family: Inter Nerd Font Propo;
-  font-weight: bold;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .control-center {
   background: alpha(@background, 0.9);
-  border: 1px solid @border;
+  border: 1px solid alpha(@border, 0.3);
   box-shadow: 0px 0px 1px 1px @shadow;
   margin: 1px;
   border-radius: 8px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 10px;
 }
 
 .control-center-list {
+  background: @background-light;
   color: @text;
-  margin-top: 5px;
-  padding: 5px;
+  border: 1px solid alpha(@border, 0.3);
   border-radius: 8px;
-  border: 1px solid @border;
-  background: transparent;
-}
-
-.notification-group-headers {
-  margin: 5px;
+  padding: 5px;
+  margin: 10px;
 }
 
 .control-center-list-placeholder {
@@ -33,21 +28,31 @@
 
 .control-center .notification-background .close-button,
 .notification-group-close-button {
+  background: @background-light;
   opacity: 0;
 }
 
 .control-center .notification-background {
-  background: alpha(@background, 0.9);
+  background: transparent;
+}
+
+revealer > box > box:first-child {
+  opacity: 0;
+}
+
+revealer > box > box:last-child {
+  margin-right: 5px;
 }
 
 .widget-title {
   color: @text;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: medium;
-  border-radius: 8px;
+  margin: 10px;
+  margin-bottom: -5px;
+}
+
+.widget-title > label {
+  font-size: large;
+  font-weight: bold;
 }
 
 .widget-title > button {
@@ -55,10 +60,14 @@
   color: @text;
   border: 1px solid alpha(@border, 0.2);
   box-shadow: 1px 1px 1px 1px @shadow;
-  border-radius: 8px;
-  font-size: small;
-  padding: 3px;
+  border-radius: 6px;
+  padding: 2px 4px;
   margin: 2px;
+  opacity: 0;
+}
+
+.widget-title > button > label {
+  font-size: small;
 }
 
 .widget-title > button:hover {
@@ -70,15 +79,14 @@
   color: @text;
   border: 1px solid alpha(@border, 0.2);
   box-shadow: 1px 1px 1px 1px @shadow;
-  margin: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 10px;
   border-radius: 8px;
   padding: 2px 5px 2px 5px;
 }
 
 .widget-dnd > switch {
   background: @shadow;
+  color: @text;
   min-height: 10px;
   padding: 2px;
   border: 1px solid alpha(@border, 0.2);
@@ -112,10 +120,12 @@
 }
 
 .widget-buttons-grid {
-  /*background: @background-light;*/
+  background: @background-light;
+  border-radius: 8px;
+  border: 1px solid alpha(@border, 0.3);
+  box-shadow: 1px 1px 1px 1px @shadow;
   padding: 10px 0px 10px 5px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .widget-buttons-grid label {
@@ -163,14 +173,11 @@
 .widget-volume {
   background: @background-light;
   color: @text;
-  border: 1px solid alpha(@border, 0.2);
   box-shadow: 1px 1px 1px 1px @shadow;
-  margin: 1px;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 8px;
   border: 1px solid alpha(@border, 0.2);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px;
 }
 
 scale {
@@ -187,4 +194,64 @@ trough {
 highlight {
   background-color: @blue;
   border-radius: 8px;
+}
+
+.widget-mpris {
+  background-color: @background-light;
+  border: 1px solid alpha(@border, 0.3);
+  box-shadow: 1px 1px 1px 1px @shadow;
+  color: @text;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.widget-mpris > box > button,
+.widget-mpris-player,
+.widget-mpris-album-art {
+  border-radius: 0;
+  box-shadow: none;
+  margin: 10px;
+}
+
+.widget-mpris-player {
+  background: @shadow;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.mpris-overlay,
+.mpris-overlay > box {
+  padding: 5px;
+}
+
+picture.mpris-background {
+  opacity: 0.15;
+}
+
+.widget-mpris > box > button {
+  color: @text;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.widget-mpris button {
+  color: alpha(@text, 0.6);
+}
+
+.widget-mpris button:hover {
+  color: @text;
+}
+
+.widget-mpris-album-art {
+  margin: 5px;
+  border-radius: 16px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.widget-mpris-subtitle {
+  font-size: 0.8rem;
 }

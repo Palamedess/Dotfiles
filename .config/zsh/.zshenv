@@ -9,6 +9,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$XDG_DATA_HOME"/go
 export NUGET_PACKAGEs="$XDG_CACHE_HOME"/NuGetPackages
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/.fzfrc
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"
@@ -16,6 +17,8 @@ export LS_COLORS="di=32:ln=35:fi=37:ex=37:*.tar=33:*.tgz=33:*.arc=33:*.arj=33:*.
 
 export BAT_PAGER="less -RF"
 export PAGER="bat -p"
+
+export PATH="$PATH":$HOME/.local/bin
 
 export EDITOR="nvim"
 export VISUAL="nvim"

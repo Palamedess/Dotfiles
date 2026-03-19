@@ -1,0 +1,67 @@
+/**
+ * See https://gnome.pages.gitlab.gnome.org/libadwaita/doc/main/css-variables.html for more CSS variables.
+ * Or use your own colors. Both work, but using your own colors may break the automatic light/dark theme function.
+ */
+
+:root {
+  --border-color: #303030;
+}
+
+* {
+  all: unset;
+}
+
+window {
+  background-color: alpha(var(--window-bg-color), 0.5);
+}
+
+button {
+  color: var(--view-fg-color);
+  background-color: var(--window-bg-color);
+  border: 2px solid alpha(var(--border-color), 0.2);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px 50px;
+}
+
+button label.action-name {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+button label.keybind {
+  font-size: 20px;
+  font-family: Inter;
+}
+
+button:hover label.keybind,
+button:focus label.keybind {
+  opacity: 1;
+}
+
+button:focus,
+button:hover {
+  background-color: var(--view-bg-color);
+  border: 2px solid alpha(var(--view-bg-color), 0.2);
+}
+
+button:active {
+  background-color: var(--card-shade-color);
+  color: var(--accent-fg-color);
+}
+
+button#shutdown {
+  --view-fg-color: #896956;
+}
+
+button#reboot {
+  --view-fg-color: #918f84;
+}
+
+button#lock {
+  --view-fg-color: #676068;
+}
+
+button#logout {
+  --view-fg-color: #5f645f;
+}

@@ -11,11 +11,11 @@
 }
 
 .notification {
-  background: alpha(@background-light, 0.9);
-  border: 1px solid @border;
-  box-shadow: 0px 0px 1px 1px @shadow;
+  background: alpha(@background, 0.9);
+  border: 1px solid alpha(@border, 0.3);
+  box-shadow: 1px 1px 1px 1px @shadow;
   border-radius: 8px;
-  margin: 1px;
+  margin: 2px;
   padding: 0 5px;
 }
 
@@ -26,7 +26,6 @@
 
 .notification-content {
   padding: 7px;
-  margin: 0;
 }
 
 .notification-action {
@@ -42,7 +41,7 @@
 }
 
 .close-button {
-  background: @red;
+  background: transparent;
   color: @text;
   text-shadow: none;
   border-radius: 8px;
@@ -57,10 +56,14 @@
   border: none;
 }
 
+.image {
+  margin: 5px;
+}
+
 .summary {
   color: @text;
   padding: 2px 0;
-  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .time {
@@ -68,6 +71,8 @@
 }
 
 .body {
+  margin-top: 5px;
+  margin-left: 5px;
   color: @text;
   font-weight: 500;
 }

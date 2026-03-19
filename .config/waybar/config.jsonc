@@ -1,14 +1,18 @@
 {
   "reload_style_on_change": true,
-  "layer": "bottom",
+  "layer": "top",
   "position": "top",
   "spacing": 5,
-  "height": 36,
+  "height": 45,
   "margin": 0,
   "margin-bottom": -1,
-  "on-sigusr1": "toggle",
-  "on-sigusr2": "restart",
+  "on-sigusr1": "hide",
+  "on-sigusr2": "show",
+  "start_hidden": false,
+  "output": "eDP-1",
+
   "modules-left": [
+    "custom/wleave",
     "hyprland/workspaces",
     "hyprland/window"
   ],
@@ -16,49 +20,86 @@
     "clock",
   ],
   "modules-right": [
-    "backlight",
+    "group/tray-expander",
+    "custom/hyprsunset",
     "network",
+    "bluetooth",
     "pulseaudio",
-    "power-profiles-daemon",
     "memory",
     "cpu",
-    "battery",
-    "custom/notification",
+    "custom/notification"
   ],
+
+  "custom/wleave": {
+    "format": "󰗽",
+    "on-click": "uwsm-app -- wleave",
+  },
+
   "hyprland/workspaces": {
     "on-click": "activate",
+    "show-special": true,
+    "show-special-active": true,
     "sort-by": "number",
     "format": "{icon}",
     "format-icons": {
-		  "1": "一",
-		  "2": "二",
-		  "3": "三",
-		  "4": "四",
-		  "5": "五",
-		  "6": "六",
-		  "7": "七",
-		  "8": "八",
-		  "9": "九",
-		  "10": "十",
+      "active": "",
+      "default": "",
+      "special": "!"
     },
     "persistent-workspaces": {
-      "*": 4,
+      "*": [ 1,2,3 ]
     }
   },
+
   "hyprland/window": {
     "format": "{title} - {class}",
     "tooltip": false,
     "expand": true,
     "max-length": 45,
     "rewrite": {
-      " - ": "Empty Workspace", // if no window is focused, a single dash is displayed, this removes it
+      " - ": "Desktop", // if no window is focused, a single dash is displayed, this removes it
       "nvim .*?": " $1",
       "(.*) - kitty": "  [ $1 ] ",
       "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
       "(.*Discord)...(.*).. (.*)": "  $2 ",
     }
   },
-    "backlight": {
+
+  "group/tray-expander": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/tray-icon",
+      "tray"
+    ]
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "show-passive-items": true
+  },
+
+  "custom/tray-icon": {
+    "format": "󰍜",
+    "tooltip": false,
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "max-length": 25,
+    "all-outputs": true,
+    "icon-size": 15,
+    "active-first": false,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-right": "close",
+  },
+
+  "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
     "tooltip-format": "{percent}%",
@@ -71,7 +112,8 @@
     ],
     "min-brightness": 5.0,
   },
-    "power-profiles-daemon": {
+
+  "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile:\n{profile}",
     "tooltip": true,
@@ -82,31 +124,37 @@
       "power-saver": " "
     }
   },
-   "cpu": {
+
+  "cpu": {
     "interval": 2,
     "format": " {usage}%",
-    "on-click": "exec uwsm app -- kitty btop"
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh btop",
+    "on-click-right": "uwsm-app -- $SCRIPTDIR/run-or-focus-gui.sh resources"
   },
-    "memory": {
+
+  "memory": {
     "interval": 2,
-    "format": " {used:0.1f}G",
-    "on-click": "exec uwsm app -- kitty btop"
+    "format": " {percentage}%",
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh btop",
+    "on-click-right": "uwsm-app -- $SCRIPTDIR/run-or-focus-gui.sh resources"
   },
+
   "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%A, %h %d / %I:%M %p}",
+    "format": "󰸗 {:%a, %m/%d - 󱑁 %I:%M %p}",
+    "format-alt": "󱑁 {:%I:%M %p}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
       "on-click-right": "mode",
       "format": {
-        "month": "<span color='#A1A1AC'><b>{}</b></span>",
-        "weekdays": "<span color='#ab836c'><b>{}</b></span>",
-        "today": "<span color='#858599'><b>{}</b></span>",
+        "month": "<span color='#896956'><b>{}</b></span>",
+        "weekdays": "<span color='#918F84'><b>{}</b></span>",
+        "today": "<span color='#5F645F'><b>{}</b></span>",
       },
     },
   },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -114,6 +162,22 @@
       "deactivated": ""
     }
   },
+
+  "custom/hyprsunset": {
+    "format": "{icon}",
+    "format-icons": {
+      "on": "󰖨",
+      "off": ""
+    },
+    "tooltip": true,
+    "tooltip-format": "Toggle {text}",
+    "return-type": "json",
+    "exec-if": "which hyprsunset",
+    "exec": "uwsm-app -- $XDG_CONFIG_HOME/waybar/scripts/hyprsunset.sh loop",
+    "on-click": "uwsm-app -- $XDG_CONFIG_HOME/waybar/scripts/hyprsunset.sh",
+    "escape": true
+  },
+
   "network": {
     "format-icons": [
       "󰤯",
@@ -133,6 +197,7 @@
     "spacing": 1,
     /*"on-click": ""*/
   },
+
   "battery": {
     "format": "{capacity}% {icon}",
     "format-discharging": "{capacity}% {icon}",
@@ -176,18 +241,20 @@
       "critical": 10
     }
   },
+
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
     "format-connected": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    /*"on-click": ""*/
+    "tooltip-format": "Connected: {num_connections}",
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh bluetui",
   },
+
   "pulseaudio": {
     "format": "{icon}",
-    /*"on-click": "omarchy-launch-or-focus-tui wiremix",*/
+    "on-click": "uwsm-app -- $SCRIPTDIR/run-or-focus-tui.sh wiremix",
     "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
+    "tooltip-format": "Volume: {volume}%",
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
@@ -198,8 +265,10 @@
       ]
     }
   },
+
   "custom/notification": {
     "tooltip": true,
+    "tooltip-format": "Notifications: {text}",
     "format": "{icon}",
     "format-icons": {
       "notification": "󱅫",
@@ -213,9 +282,9 @@
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
+    "exec": "uwsm-app -- swaync-client -swb",
+    "on-click": "$XDG_CONFIG_HOME/waybar/scripts/control-center.sh",
+    "on-click-right": "uwsm-app -- swaync-client -d -sw",
     "escape": true
   },
 }

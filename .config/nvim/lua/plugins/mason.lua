@@ -1,7 +1,7 @@
 return {
   "mason-org/mason.nvim",
-  opts = {
-    ensure_installed = {
+  opts = function(_, opts)
+    opts.ensure_installed = {
       "bash-language-server",
       "clangd",
       "codelldb",
@@ -11,6 +11,6 @@ return {
       "lua-language-server",
       "prettierd",
       "qmlls",
-    },
-  },
+    }
+  end,
 }
